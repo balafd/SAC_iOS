@@ -22,7 +22,7 @@ class ResultViewController: UIViewController {
         // Do any additional setup after loading the view.
         configureMapView()
         configureMapStyle()
-        configureResultTableView()
+        populateResults()
         recentreButton.isHidden = true
     }
     
@@ -82,23 +82,11 @@ extension ResultViewController {
 
 extension ResultViewController: UITableViewDelegate {
     
-    func configureResultTableView() {
-        let webService = MockService.init()
-        
-        webService.fetchShops(searchText: "searchText", latitude: 44.00, longitude: 44.00, completion: { (shops) in
-            
-            if let resultShops = shops {
-                self.results = resultShops
-                print(resultShops)
-            } else {
-                print("Error in Fetching")
-            }
-            self.results?.forEach({ (shop) in
-                self.addShopMarkerTag(shop: shop, toMap: self.mapView)
-            })
-            self.resultTableView.reloadData()
+    func populateResults() {
+        self.results?.forEach({ (shop) in
+            self.addShopMarkerTag(shop: shop, toMap: self.mapView)
         })
-        
+        self.resultTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

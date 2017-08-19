@@ -24,14 +24,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="7YM-S7-DXg">
-                                <rect key="frame" x="0.0" y="69" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="65" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFe-8d-uld">
                                 <rect key="frame" x="164" y="318.5" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="jg3-tx-OHY" kind="show" id="QNY-pp-dqw"/>
+                                    <action selector="tappedSearchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JCd-6W-R0m"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -46,6 +46,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Pgy-h9-JZR"/>
+                    <connections>
+                        <outlet property="searchBar" destination="7YM-S7-DXg" id="2Z7-Jd-piH"/>
+                        <segue destination="jg3-tx-OHY" kind="show" identifier="ResultsPage" id="8SS-P7-yZv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,11 +64,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="62g-g8-5F7" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="68" width="375" height="299.5"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="301.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hb2-2q-G2n">
-                                <rect key="frame" x="10" y="76" width="40" height="34"/>
+                                <rect key="frame" x="10" y="72" width="40" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" red="0.011539757249999999" green="0.72258490320000002" blue="0.45890909429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -74,7 +78,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pm7-Bu-oOo">
-                                <rect key="frame" x="296" y="329.5" width="69" height="33"/>
+                                <rect key="frame" x="296" y="327.5" width="69" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Recentre">
                                     <color key="titleColor" red="0.011539757249999999" green="0.72258490320000002" blue="0.45890909429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -84,7 +88,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jFe-Ma-d7n">
-                                <rect key="frame" x="0.0" y="367.5" width="375" height="299.5"/>
+                                <rect key="frame" x="0.0" y="365.5" width="375" height="301.5"/>
                                 <color key="backgroundColor" red="0.92112749810000005" green="0.9332919717" blue="0.94152116779999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShopCell" rowHeight="56" id="63m-3W-t0L" customClass="ShopCell" customModule="SAC" customModuleProvider="target">

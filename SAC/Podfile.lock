@@ -5,15 +5,18 @@ PODS:
   - GoogleMaps/Base (2.3.0)
   - GoogleMaps/Maps (2.3.0):
     - GoogleMaps/Base
+  - MBProgressHUD (1.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - GoogleMaps (= 2.3.0)
+  - MBProgressHUD
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   GoogleMaps: 340a6a0bebd17c2db8abcd3921976c7c53c86cb8
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
 
-PODFILE CHECKSUM: dd37d305fcf0367bf79f1fb76641d19024dc43a0
+PODFILE CHECKSUM: 0e13bd2a66285c94c2aa0caea6455137c5d65d84
 
 COCOAPODS: 1.2.1

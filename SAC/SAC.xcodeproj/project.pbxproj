@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2D8C38FD1F485BD700FCB969 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C38FC1F485BD700FCB969 /* WebService.swift */; };
+		2D8C38FF1F48779200FCB969 /* MockWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C38FE1F48779200FCB969 /* MockWebService.swift */; };
+		2D8C39011F4877AE00FCB969 /* SACWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C39001F4877AE00FCB969 /* SACWebService.swift */; };
 		2DA88AC11F48464700C79AB2 /* MapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DA88AC01F48464700C79AB2 /* MapStyle.json */; };
 		2DB3D1D91F480BC900FF8D9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB3D1D81F480BC900FF8D9C /* AppDelegate.swift */; };
 		2DB3D1DB1F480BC900FF8D9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB3D1DA1F480BC900FF8D9C /* ViewController.swift */; };
@@ -23,6 +25,9 @@
 /* Begin PBXFileReference section */
 		0AA9F53322AE205BFDE27F91 /* Pods-SAC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAC.release.xcconfig"; path = "Pods/Target Support Files/Pods-SAC/Pods-SAC.release.xcconfig"; sourceTree = "<group>"; };
 		2D8C38FC1F485BD700FCB969 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		2D8C38FE1F48779200FCB969 /* MockWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWebService.swift; sourceTree = "<group>"; };
+		2D8C39001F4877AE00FCB969 /* SACWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SACWebService.swift; sourceTree = "<group>"; };
+		2D8C39021F487A2B00FCB969 /* SAC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SAC-Bridging-Header.h"; sourceTree = "<group>"; };
 		2DA88AC01F48464700C79AB2 /* MapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = MapStyle.json; path = ../../../MapsPOC/MapsPOC/MapStyle.json; sourceTree = "<group>"; };
 		2DB3D1D51F480BC900FF8D9C /* SAC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DB3D1D81F480BC900FF8D9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +59,8 @@
 			isa = PBXGroup;
 			children = (
 				2D8C38FC1F485BD700FCB969 /* WebService.swift */,
+				2D8C38FE1F48779200FCB969 /* MockWebService.swift */,
+				2D8C39001F4877AE00FCB969 /* SACWebService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -79,6 +86,7 @@
 		2DB3D1D71F480BC900FF8D9C /* SAC */ = {
 			isa = PBXGroup;
 			children = (
+				2D8C39021F487A2B00FCB969 /* SAC-Bridging-Header.h */,
 				2D8C38FB1F485BB700FCB969 /* API */,
 				2DA88AC01F48464700C79AB2 /* MapStyle.json */,
 				2DB3D1F11F48323A00FF8D9C /* Cells */,
@@ -162,6 +170,7 @@
 				TargetAttributes = {
 					2DB3D1D41F480BC900FF8D9C = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 					};
 				};
 			};
@@ -251,8 +260,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D8C38FD1F485BD700FCB969 /* WebService.swift in Sources */,
+				2D8C38FF1F48779200FCB969 /* MockWebService.swift in Sources */,
 				2DB3D1DB1F480BC900FF8D9C /* ViewController.swift in Sources */,
 				2DB3D1D91F480BC900FF8D9C /* AppDelegate.swift in Sources */,
+				2D8C39011F4877AE00FCB969 /* SACWebService.swift in Sources */,
 				2DB3D1EC1F48158700FF8D9C /* ResultViewController.swift in Sources */,
 				2DB3D1F01F48228F00FF8D9C /* Shop.swift in Sources */,
 				2DB3D1F31F48325500FF8D9C /* ShopCell.swift in Sources */,
@@ -393,12 +404,15 @@
 			baseConfigurationReference = D87A2277E194D010ACC52034 /* Pods-SAC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = PKUQ4ZWJH3;
 				INFOPLIST_FILE = SAC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.freshworks.sac.SAC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SAC/SAC-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -409,12 +423,14 @@
 			baseConfigurationReference = 0AA9F53322AE205BFDE27F91 /* Pods-SAC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = PKUQ4ZWJH3;
 				INFOPLIST_FILE = SAC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.freshworks.sac.SAC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SAC/SAC-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
