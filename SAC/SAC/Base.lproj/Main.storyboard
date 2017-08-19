@@ -55,22 +55,18 @@
                         <subviews>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="62g-g8-5F7" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="301.5"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hb2-2q-G2n">
-                                        <rect key="frame" x="8" y="8" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="goBackToSearchView:" destination="jg3-tx-OHY" eventType="touchUpInside" id="91T-gG-8Ze"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="hb2-2q-G2n" firstAttribute="top" secondItem="62g-g8-5F7" secondAttribute="top" constant="8" id="PhD-v8-go0"/>
-                                    <constraint firstItem="hb2-2q-G2n" firstAttribute="leading" secondItem="62g-g8-5F7" secondAttribute="leading" constant="8" id="h7I-M9-039"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hb2-2q-G2n" secondAttribute="trailing" constant="20" symbolic="YES" id="qPM-eA-dMh"/>
-                                </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hb2-2q-G2n">
+                                <rect key="frame" x="10" y="72" width="40" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.011539757249999999" green="0.72258490320000002" blue="0.45890909429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBackToSearchView:" destination="jg3-tx-OHY" eventType="touchUpInside" id="91T-gG-8Ze"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jFe-Ma-d7n">
                                 <rect key="frame" x="0.0" y="365.5" width="375" height="301.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -81,9 +77,12 @@
                             <constraint firstItem="62g-g8-5F7" firstAttribute="trailing" secondItem="kRh-g1-EuW" secondAttribute="trailing" id="4RE-Vr-jJj"/>
                             <constraint firstItem="jFe-Ma-d7n" firstAttribute="leading" secondItem="kRh-g1-EuW" secondAttribute="leading" id="5aB-TA-N4O"/>
                             <constraint firstItem="62g-g8-5F7" firstAttribute="top" secondItem="kRh-g1-EuW" secondAttribute="top" id="BLK-lu-Cjd"/>
+                            <constraint firstItem="hb2-2q-G2n" firstAttribute="top" secondItem="kRh-g1-EuW" secondAttribute="top" constant="8" id="Bbx-bd-L1F"/>
                             <constraint firstItem="62g-g8-5F7" firstAttribute="leading" secondItem="kRh-g1-EuW" secondAttribute="leading" id="Ciq-Va-9Fc"/>
+                            <constraint firstItem="hb2-2q-G2n" firstAttribute="leading" secondItem="kRh-g1-EuW" secondAttribute="leading" constant="10" id="Lhm-fN-jj4"/>
                             <constraint firstItem="jFe-Ma-d7n" firstAttribute="top" secondItem="62g-g8-5F7" secondAttribute="bottom" id="NI3-so-KNX"/>
                             <constraint firstItem="kRh-g1-EuW" firstAttribute="bottom" secondItem="jFe-Ma-d7n" secondAttribute="bottom" id="cEG-aj-tuf"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hb2-2q-G2n" secondAttribute="trailing" constant="20" symbolic="YES" id="iAr-wq-PFW"/>
                             <constraint firstItem="jFe-Ma-d7n" firstAttribute="height" secondItem="62g-g8-5F7" secondAttribute="height" id="uS0-3Q-zL0"/>
                             <constraint firstItem="kRh-g1-EuW" firstAttribute="trailing" secondItem="jFe-Ma-d7n" secondAttribute="trailing" id="wnV-7x-CZO"/>
                         </constraints>

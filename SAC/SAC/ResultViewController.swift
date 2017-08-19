@@ -12,6 +12,7 @@ import GoogleMaps
 class ResultViewController: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var resultTableView: UITableView!
+    let zoomScale: Float = 14.0
     
     var isMyLocationMarkerAdded: Bool = false
     override func viewDidLoad() {
@@ -33,8 +34,9 @@ class ResultViewController: UIViewController {
 extension ResultViewController {
     
     func configureMapView() {
-        
-        let camera = GMSCameraPosition.camera(withLatitude:-33.868, longitude: 151.2086, zoom: 14)
+        let randomLatitude = -33.868
+        let randomtLongitude = 151.2086
+        let camera = GMSCameraPosition.camera(withLatitude:randomLatitude, longitude: randomtLongitude, zoom: zoomScale)
         mapView.camera = camera
         mapView.settings.compassButton = false
         mapView.settings.myLocationButton = false
@@ -66,8 +68,6 @@ extension ResultViewController {
     func configureResultTableView() {
         
     }
-    
-    
 }
 
 extension UIViewController  {
