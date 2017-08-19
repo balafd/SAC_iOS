@@ -34,14 +34,23 @@
                                     <action selector="tappedSearchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JCd-6W-R0m"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YiN-XT-4du">
+                                <rect key="frame" x="8" y="281" width="359" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="7YM-S7-DXg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1Eu-jL-Bl5"/>
+                            <constraint firstItem="YiN-XT-4du" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="4Xg-vz-9Ub"/>
                             <constraint firstItem="wFe-8d-uld" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AcP-xG-UpV"/>
                             <constraint firstItem="wFe-8d-uld" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bGL-eJ-Qvs"/>
                             <constraint firstItem="7YM-S7-DXg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hfK-LJ-Zyf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YiN-XT-4du" secondAttribute="trailing" constant="8" id="jgE-zk-ejp"/>
                             <constraint firstItem="7YM-S7-DXg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="1" id="nep-8H-7zd"/>
+                            <constraint firstItem="YiN-XT-4du" firstAttribute="top" secondItem="7YM-S7-DXg" secondAttribute="bottom" constant="160" id="sr6-zu-Vgt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

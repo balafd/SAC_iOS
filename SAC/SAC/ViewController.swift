@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     
     func searchForShops() {
         if let location = myCurrentLocation {
-            webService.fetchShops(searchText: "SearchText", latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, completion: { (shops) in
+            webService.fetchShops(tagID: "SearchText", latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, completion: { (shops) in
                 
                 if let resultShops = shops {
                     print(resultShops)

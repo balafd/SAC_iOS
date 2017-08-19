@@ -10,6 +10,7 @@
 		2D8C38FD1F485BD700FCB969 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C38FC1F485BD700FCB969 /* WebService.swift */; };
 		2D8C38FF1F48779200FCB969 /* MockWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C38FE1F48779200FCB969 /* MockWebService.swift */; };
 		2D8C39011F4877AE00FCB969 /* SACWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C39001F4877AE00FCB969 /* SACWebService.swift */; };
+		2D8C39071F48980600FCB969 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C39061F48980600FCB969 /* Tag.swift */; };
 		2DA88AC11F48464700C79AB2 /* MapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DA88AC01F48464700C79AB2 /* MapStyle.json */; };
 		2DB3D1D91F480BC900FF8D9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB3D1D81F480BC900FF8D9C /* AppDelegate.swift */; };
 		2DB3D1DB1F480BC900FF8D9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB3D1DA1F480BC900FF8D9C /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 		2D8C38FE1F48779200FCB969 /* MockWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWebService.swift; sourceTree = "<group>"; };
 		2D8C39001F4877AE00FCB969 /* SACWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SACWebService.swift; sourceTree = "<group>"; };
 		2D8C39021F487A2B00FCB969 /* SAC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SAC-Bridging-Header.h"; sourceTree = "<group>"; };
+		2D8C39061F48980600FCB969 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		2DA88AC01F48464700C79AB2 /* MapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = MapStyle.json; path = ../../../MapsPOC/MapsPOC/MapStyle.json; sourceTree = "<group>"; };
 		2DB3D1D51F480BC900FF8D9C /* SAC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DB3D1D81F480BC900FF8D9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				2DB3D1EF1F48228F00FF8D9C /* Shop.swift */,
+				2D8C39061F48980600FCB969 /* Tag.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				2DB3D1D91F480BC900FF8D9C /* AppDelegate.swift in Sources */,
 				2D8C39011F4877AE00FCB969 /* SACWebService.swift in Sources */,
 				2DB3D1EC1F48158700FF8D9C /* ResultViewController.swift in Sources */,
+				2D8C39071F48980600FCB969 /* Tag.swift in Sources */,
 				2DB3D1F01F48228F00FF8D9C /* Shop.swift in Sources */,
 				2DB3D1F31F48325500FF8D9C /* ShopCell.swift in Sources */,
 			);

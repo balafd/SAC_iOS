@@ -10,7 +10,7 @@ import Foundation
 
 protocol WebService {
     var hostURL: String { get }
-    func fetchShops(searchText: String, latitude: Double, longitude: Double, completion: @escaping ([Shop]?) -> Void)
-    func searchSuggestions(searchText: String, completion: @escaping ([String]?) -> Void)
+    func fetchShops(tagID: String, latitude: Double, longitude: Double, completion: @escaping ([Shop]?) -> Void)
+    func searchSuggestions(searchText: String, completion: @escaping ([Tag]?) -> Void)
 }
 
