@@ -13,6 +13,8 @@
 		2DB3D1E01F480BC900FF8D9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DB3D1DF1F480BC900FF8D9C /* Assets.xcassets */; };
 		2DB3D1E31F480BC900FF8D9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB3D1E11F480BC900FF8D9C /* LaunchScreen.storyboard */; };
 		2DB3D1EC1F48158700FF8D9C /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB3D1EA1F48158700FF8D9C /* ResultViewController.swift */; };
+		2DB3D1F01F48228F00FF8D9C /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB3D1EF1F48228F00FF8D9C /* Shop.swift */; };
+		2DB3D1F31F48325500FF8D9C /* ShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB3D1F21F48325500FF8D9C /* ShopCell.swift */; };
 		79791AC06DF69C0F6A541DC7 /* Pods_SAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5FBBF291CCEA9B61F6FA522 /* Pods_SAC.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +28,8 @@
 		2DB3D1E21F480BC900FF8D9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DB3D1E41F480BC900FF8D9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DB3D1EA1F48158700FF8D9C /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		2DB3D1EF1F48228F00FF8D9C /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		2DB3D1F21F48325500FF8D9C /* ShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCell.swift; sourceTree = "<group>"; };
 		A5FBBF291CCEA9B61F6FA522 /* Pods_SAC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SAC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D87A2277E194D010ACC52034 /* Pods-SAC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SAC/Pods-SAC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +67,8 @@
 		2DB3D1D71F480BC900FF8D9C /* SAC */ = {
 			isa = PBXGroup;
 			children = (
+				2DB3D1F11F48323A00FF8D9C /* Cells */,
+				2DB3D1EE1F48225100FF8D9C /* Model */,
 				2DB3D1D81F480BC900FF8D9C /* AppDelegate.swift */,
 				2DB3D1DA1F480BC900FF8D9C /* ViewController.swift */,
 				2DB3D1EA1F48158700FF8D9C /* ResultViewController.swift */,
@@ -72,6 +78,22 @@
 				2DB3D1E41F480BC900FF8D9C /* Info.plist */,
 			);
 			path = SAC;
+			sourceTree = "<group>";
+		};
+		2DB3D1EE1F48225100FF8D9C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2DB3D1EF1F48228F00FF8D9C /* Shop.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2DB3D1F11F48323A00FF8D9C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2DB3D1F21F48325500FF8D9C /* ShopCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		5F9D12F10E86B60CEA75F2F5 /* Pods */ = {
@@ -216,6 +238,8 @@
 				2DB3D1DB1F480BC900FF8D9C /* ViewController.swift in Sources */,
 				2DB3D1D91F480BC900FF8D9C /* AppDelegate.swift in Sources */,
 				2DB3D1EC1F48158700FF8D9C /* ResultViewController.swift in Sources */,
+				2DB3D1F01F48228F00FF8D9C /* Shop.swift in Sources */,
+				2DB3D1F31F48325500FF8D9C /* ShopCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

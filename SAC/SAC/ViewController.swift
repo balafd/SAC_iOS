@@ -46,7 +46,6 @@ extension ViewController : CLLocationManagerDelegate {
     func setupLocationManager(_ locationManager: CLLocationManager) {
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
-        
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -61,3 +60,10 @@ extension ViewController : CLLocationManagerDelegate {
     }
 }
 
+
+extension ViewController {
+    
+    
+    
+    
+}

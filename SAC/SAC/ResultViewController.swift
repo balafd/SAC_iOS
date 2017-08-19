@@ -13,12 +13,13 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var resultTableView: UITableView!
     let zoomScale: Float = 14.0
-    
     var isMyLocationMarkerAdded: Bool = false
+    var results: [Shop]?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         configureMapView()
+        configureResultTableView()
     }
     
     @IBAction func goBackToSearchView(_ sender: Any) {
@@ -59,14 +60,47 @@ extension ResultViewController {
     }
     
     func updateMyCurrentLocation(location: CLLocation) {
-        mapView.camera = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: 14)
+        mapView.camera = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: zoomScale)
     }
 }
 
-extension ResultViewController {
+extension ResultViewController: UITableViewDelegate {
     
     func configureResultTableView() {
+        let shop1 =  Shop (name: "Shop1", shopId: "1", contactNumber: "99559944922", latitude: 12.96099, longitude: 80.24099, address: "Perungudi - 635001")
+        let shop2 =  Shop (name: "Shop2", shopId: "2", contactNumber: "9955991223", latitude: 12.96092, longitude: 80.24092, address: "Perungudi - 635001")
+        results = []
+        results?.append(shop1)
+        results?.append(shop2)
         
+        results?.forEach({ (shop) in
+            let locationCoordinate = CLLocationCoordinate2DMake(shop.latitude, shop.longitude)
+            addShopMarkerTag(title: shop.name, position: locationCoordinate, snippet: shop.contactNumber, toMap: mapView)
+        })
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedShop = results?[indexPath.row]
+        if let shop = selectedShop {
+            print(shop.name)
+        }
+    }
+}
+
+extension ResultViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (results?.count)!
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let selectedShop = results?[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ShopCell") as! ShopCell
+        if let shop = selectedShop {
+            cell.configureCell(shop: shop)
+        }
+        return cell
     }
 }
 
