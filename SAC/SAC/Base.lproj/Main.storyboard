@@ -21,10 +21,19 @@
                                 <rect key="frame" x="0.0" y="65" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFe-8d-uld">
+                                <rect key="frame" x="164" y="318.5" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="jg3-tx-OHY" kind="show" id="QNY-pp-dqw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="7YM-S7-DXg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1Eu-jL-Bl5"/>
+                            <constraint firstItem="wFe-8d-uld" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AcP-xG-UpV"/>
+                            <constraint firstItem="wFe-8d-uld" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bGL-eJ-Qvs"/>
                             <constraint firstItem="7YM-S7-DXg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hfK-LJ-Zyf"/>
                             <constraint firstItem="7YM-S7-DXg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="1" id="nep-8H-7zd"/>
                         </constraints>
@@ -35,6 +44,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="455.19999999999999" y="122.78860569715144"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="zw1-cJ-Bsk">
+            <objects>
+                <viewController id="jg3-tx-OHY" customClass="ResultViewController" customModule="SAC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="P3n-Iz-yP3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="62g-g8-5F7" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="301.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jFe-Ma-d7n">
+                                <rect key="frame" x="0.0" y="365.5" width="375" height="301.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="62g-g8-5F7" firstAttribute="trailing" secondItem="kRh-g1-EuW" secondAttribute="trailing" id="4RE-Vr-jJj"/>
+                            <constraint firstItem="jFe-Ma-d7n" firstAttribute="leading" secondItem="kRh-g1-EuW" secondAttribute="leading" id="5aB-TA-N4O"/>
+                            <constraint firstItem="62g-g8-5F7" firstAttribute="top" secondItem="kRh-g1-EuW" secondAttribute="top" id="BLK-lu-Cjd"/>
+                            <constraint firstItem="62g-g8-5F7" firstAttribute="leading" secondItem="kRh-g1-EuW" secondAttribute="leading" id="Ciq-Va-9Fc"/>
+                            <constraint firstItem="jFe-Ma-d7n" firstAttribute="top" secondItem="62g-g8-5F7" secondAttribute="bottom" id="NI3-so-KNX"/>
+                            <constraint firstItem="kRh-g1-EuW" firstAttribute="bottom" secondItem="jFe-Ma-d7n" secondAttribute="bottom" id="cEG-aj-tuf"/>
+                            <constraint firstItem="jFe-Ma-d7n" firstAttribute="height" secondItem="62g-g8-5F7" secondAttribute="height" id="uS0-3Q-zL0"/>
+                            <constraint firstItem="kRh-g1-EuW" firstAttribute="trailing" secondItem="jFe-Ma-d7n" secondAttribute="trailing" id="wnV-7x-CZO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kRh-g1-EuW"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="mapView" destination="62g-g8-5F7" id="tPI-ca-xeN"/>
+                        <outlet property="resultTableView" destination="jFe-Ma-d7n" id="cur-Qk-x6B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t9J-Iq-bnN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1189.5999999999999" y="122.78860569715144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dH1-Sk-Li2">

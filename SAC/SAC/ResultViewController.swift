@@ -11,30 +11,47 @@ import GoogleMaps
 
 class ResultViewController: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
-    var isLocationMarkerAdded: Bool = false
-    let locationManager = CLLocationManager()
+    @IBOutlet weak var resultTableView: UITableView!
     
-    var myCurrentLocation : CLLocation?
+    var isMyLocationMarkerAdded: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+//        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        configureMapView()
+    }
+    
+    func configureMapView() {
+        
+        let camera = GMSCameraPosition.camera(withLatitude:-33.868, longitude: 151.2086, zoom: 14)
+        mapView.camera = camera
+        mapView.settings.compassButton = false
+        mapView.settings.myLocationButton = false
+        mapView.addObserver(self, forKeyPath: "myLocation", options: NSKeyValueObservingOptions.new, context: nil)
+        // Ask for My Location data after the map has already been added to the UI.
+        DispatchQueue.global(qos: .userInitiated).async {
+            DispatchQueue.main.async {
+                self.mapView.isMyLocationEnabled = true
+            }
+        }
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if let locationChange = change {
+            if let myCurrentLocation = locationChange[NSKeyValueChangeKey.newKey] {
+                let location = myCurrentLocation as! CLLocation
+                updateMyCurrentLocation(location: location)
+            }
+        }
     }
 
+    func updateMyCurrentLocation(location: CLLocation) {
+        mapView.camera = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: 14)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
