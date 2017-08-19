@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="7YM-S7-DXg">
-                                <rect key="frame" x="0.0" y="65" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="69" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFe-8d-uld">
@@ -59,11 +60,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="62g-g8-5F7" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="301.5"/>
+                                <rect key="frame" x="0.0" y="68" width="375" height="299.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hb2-2q-G2n">
-                                <rect key="frame" x="10" y="72" width="40" height="34"/>
+                                <rect key="frame" x="10" y="76" width="40" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" red="0.011539757249999999" green="0.72258490320000002" blue="0.45890909429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -72,9 +73,19 @@
                                     <action selector="goBackToSearchView:" destination="jg3-tx-OHY" eventType="touchUpInside" id="91T-gG-8Ze"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pm7-Bu-oOo">
+                                <rect key="frame" x="296" y="329.5" width="69" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Recentre">
+                                    <color key="titleColor" red="0.011539757249999999" green="0.72258490320000002" blue="0.45890909429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="recentreToMyLocation:" destination="jg3-tx-OHY" eventType="touchUpInside" id="sdD-cV-T0G"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jFe-Ma-d7n">
-                                <rect key="frame" x="0.0" y="365.5" width="375" height="301.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="367.5" width="375" height="299.5"/>
+                                <color key="backgroundColor" red="0.92112749810000005" green="0.9332919717" blue="0.94152116779999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShopCell" rowHeight="56" id="63m-3W-t0L" customClass="ShopCell" customModule="SAC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="56"/>
@@ -138,6 +149,9 @@
                             <constraint firstItem="62g-g8-5F7" firstAttribute="leading" secondItem="kRh-g1-EuW" secondAttribute="leading" id="Ciq-Va-9Fc"/>
                             <constraint firstItem="hb2-2q-G2n" firstAttribute="leading" secondItem="kRh-g1-EuW" secondAttribute="leading" constant="10" id="Lhm-fN-jj4"/>
                             <constraint firstItem="jFe-Ma-d7n" firstAttribute="top" secondItem="62g-g8-5F7" secondAttribute="bottom" id="NI3-so-KNX"/>
+                            <constraint firstItem="Pm7-Bu-oOo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="P3n-Iz-yP3" secondAttribute="leading" constant="20" symbolic="YES" id="O4f-vl-6yy"/>
+                            <constraint firstItem="kRh-g1-EuW" firstAttribute="trailing" secondItem="Pm7-Bu-oOo" secondAttribute="trailing" constant="10" id="W0d-oQ-bfS"/>
+                            <constraint firstItem="jFe-Ma-d7n" firstAttribute="top" secondItem="Pm7-Bu-oOo" secondAttribute="bottom" constant="5" id="aOf-rd-6dd"/>
                             <constraint firstItem="kRh-g1-EuW" firstAttribute="bottom" secondItem="jFe-Ma-d7n" secondAttribute="bottom" id="cEG-aj-tuf"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hb2-2q-G2n" secondAttribute="trailing" constant="20" symbolic="YES" id="iAr-wq-PFW"/>
                             <constraint firstItem="jFe-Ma-d7n" firstAttribute="height" secondItem="62g-g8-5F7" secondAttribute="height" id="uS0-3Q-zL0"/>
@@ -148,6 +162,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="mapView" destination="62g-g8-5F7" id="tPI-ca-xeN"/>
+                        <outlet property="recentreButton" destination="Pm7-Bu-oOo" id="D7o-SL-jhx"/>
                         <outlet property="resultTableView" destination="jFe-Ma-d7n" id="cur-Qk-x6B"/>
                     </connections>
                 </viewController>

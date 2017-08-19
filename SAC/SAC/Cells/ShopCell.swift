@@ -9,13 +9,12 @@
 import UIKit
 
 protocol ShopCellProtocol: class {
-    func didTapCall(onShop: Shop)
+    func didTapCall(shop: Shop)
 }
 
 class ShopCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var contactNumberLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var callButton: UIButton!
     var shop: Shop?
     weak var delegate: ShopCellProtocol?
@@ -39,7 +38,7 @@ class ShopCell: UITableViewCell {
     @IBAction func didTapCall(_ sender: Any) {
         
         if let tappedShop = self.shop {
-            self.delegate?.didTapCall(onShop: tappedShop)
+            self.delegate?.didTapCall(shop: tappedShop)
         }
     }
 }

@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     var myCurrentLocation : CLLocation?
     let locationManager = CLLocationManager()
+    let webService = MockService.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,18 +22,27 @@ class ViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         setupLocationManager(locationManager)
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
     func configureProductSearchBar() {
         searchBar.placeholder = "Enter product name, eg: Shampoo"
         
     }
     
-    func animateSearchBar() {
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+
+    override func performSegue(withIdentifier identifier: String, sender: Any?) {
         
+        if let location = myCurrentLocation {
+            webService.fetchShops(searchText: "SearchText", latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, completion: { (shops) in
+                
+                if let resultShops = shops {
+                    print(resultShops)
+                } else {
+                    print("Error in Fetching")
+                }
+            })
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,10 +70,3 @@ extension ViewController : CLLocationManagerDelegate {
     }
 }
 
-
-extension ViewController {
-    
-    
-    
-    
-}

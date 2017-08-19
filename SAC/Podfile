@@ -7,4 +7,5 @@ target 'SAC' do
 
   # Pods for SAC
     pod 'GoogleMaps', '= 2.3.0'
+    pod 'Alamofire'
 end

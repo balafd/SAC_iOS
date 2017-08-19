@@ -12,6 +12,8 @@ import GoogleMaps
 class ResultViewController: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var resultTableView: UITableView!
+    @IBOutlet weak var recentreButton: UIButton!
+    
     let zoomScale: Float = 14.0
     var isMyLocationMarkerAdded: Bool = false
     var results: [Shop]?
@@ -19,7 +21,9 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         configureMapView()
+        configureMapStyle()
         configureResultTableView()
+        recentreButton.isHidden = true
     }
     
     @IBAction func goBackToSearchView(_ sender: Any) {
@@ -39,6 +43,7 @@ extension ResultViewController {
         let randomtLongitude = 151.2086
         let camera = GMSCameraPosition.camera(withLatitude:randomLatitude, longitude: randomtLongitude, zoom: zoomScale)
         mapView.camera = camera
+        mapView.delegate = self
         mapView.settings.compassButton = false
         mapView.settings.myLocationButton = false
         mapView.addObserver(self, forKeyPath: "myLocation", options: NSKeyValueObservingOptions.new, context: nil)
@@ -47,6 +52,17 @@ extension ResultViewController {
             DispatchQueue.main.async {
                 self.mapView.isMyLocationEnabled = true
             }
+        }
+    }
+    
+    func configureMapStyle() {
+        
+        let mapStyleURL = Bundle.main.url(forResource: "MapStyle", withExtension: "json")
+        do {
+            let nightStyle = try GMSMapStyle.init(contentsOfFileURL: mapStyleURL!)
+            mapView.mapStyle = nightStyle
+        } catch {
+            print(error)
         }
     }
     
@@ -67,16 +83,22 @@ extension ResultViewController {
 extension ResultViewController: UITableViewDelegate {
     
     func configureResultTableView() {
-        let shop1 =  Shop (name: "Shop1", shopId: "1", contactNumber: "99559944922", latitude: 12.96099, longitude: 80.24099, address: "Perungudi - 635001")
-        let shop2 =  Shop (name: "Shop2", shopId: "2", contactNumber: "9955991223", latitude: 12.96092, longitude: 80.24092, address: "Perungudi - 635001")
-        results = []
-        results?.append(shop1)
-        results?.append(shop2)
+        let webService = MockService.init()
         
-        results?.forEach({ (shop) in
-            let locationCoordinate = CLLocationCoordinate2DMake(shop.latitude, shop.longitude)
-            addShopMarkerTag(title: shop.name, position: locationCoordinate, snippet: shop.contactNumber, toMap: mapView)
+        webService.fetchShops(searchText: "searchText", latitude: 44.00, longitude: 44.00, completion: { (shops) in
+            
+            if let resultShops = shops {
+                self.results = resultShops
+                print(resultShops)
+            } else {
+                print("Error in Fetching")
+            }
+            self.results?.forEach({ (shop) in
+                self.addShopMarkerTag(shop: shop, toMap: self.mapView)
+            })
+            self.resultTableView.reloadData()
         })
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -97,6 +119,7 @@ extension ResultViewController: UITableViewDataSource {
         
         let selectedShop = results?[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShopCell") as! ShopCell
+        cell.delegate = self
         if let shop = selectedShop {
             cell.configureCell(shop: shop)
         }
@@ -104,13 +127,56 @@ extension ResultViewController: UITableViewDataSource {
     }
 }
 
+extension ResultViewController : ShopCellProtocol {
+    func didTapCall(shop: Shop) {
+        
+        let phone = "tel://\(shop.contactNumber)"
+        if let url = URL(string: phone) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                // Fallback on earlier versions
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
+}
+
+extension ResultViewController : GMSMapViewDelegate {
+    
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        
+        if mapView.selectedMarker != marker {
+            CATransaction.begin()
+            CATransaction .setAnimationDuration(2.0)
+            let maxZoom: Float = 19.0
+            let bearing: CLLocationDirection = 50
+            let viewAngle: Double = 60
+            let camera = GMSCameraPosition.init(target: marker.position, zoom: maxZoom, bearing: bearing, viewingAngle: viewAngle)
+            mapView.animate(to: camera)
+            recentreButton.isHidden = false
+        } else {
+            return false
+        }
+        return true
+    }
+    
+    @IBAction  func recentreToMyLocation(_ sender: Any) {
+        if let myLocation = mapView.myLocation {
+            updateMyCurrentLocation(location: myLocation)
+        }
+        recentreButton.isHidden = true
+    }
+}
+
 extension UIViewController  {
     
-    func addShopMarkerTag(title: String, position: CLLocationCoordinate2D, snippet: String, toMap: GMSMapView) {
+    func addShopMarkerTag(shop: Shop, toMap: GMSMapView) {
         let marker = GMSMarker()
+        let position = CLLocationCoordinate2DMake(shop.latitude, shop.longitude)
         marker.position = position
-        marker.title = title
-        marker.snippet = snippet
+        marker.title = shop.name
+        marker.snippet = shop.contactNumber
         marker.map = toMap
     }
 }

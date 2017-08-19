@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D8C38FD1F485BD700FCB969 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C38FC1F485BD700FCB969 /* WebService.swift */; };
+		2DA88AC11F48464700C79AB2 /* MapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DA88AC01F48464700C79AB2 /* MapStyle.json */; };
 		2DB3D1D91F480BC900FF8D9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB3D1D81F480BC900FF8D9C /* AppDelegate.swift */; };
 		2DB3D1DB1F480BC900FF8D9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB3D1DA1F480BC900FF8D9C /* ViewController.swift */; };
 		2DB3D1DE1F480BC900FF8D9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB3D1DC1F480BC900FF8D9C /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		0AA9F53322AE205BFDE27F91 /* Pods-SAC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAC.release.xcconfig"; path = "Pods/Target Support Files/Pods-SAC/Pods-SAC.release.xcconfig"; sourceTree = "<group>"; };
+		2D8C38FC1F485BD700FCB969 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		2DA88AC01F48464700C79AB2 /* MapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = MapStyle.json; path = ../../../MapsPOC/MapsPOC/MapStyle.json; sourceTree = "<group>"; };
 		2DB3D1D51F480BC900FF8D9C /* SAC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DB3D1D81F480BC900FF8D9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DB3D1DA1F480BC900FF8D9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +50,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D8C38FB1F485BB700FCB969 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				2D8C38FC1F485BD700FCB969 /* WebService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		2DB3D1CC1F480BC900FF8D9C = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +79,8 @@
 		2DB3D1D71F480BC900FF8D9C /* SAC */ = {
 			isa = PBXGroup;
 			children = (
+				2D8C38FB1F485BB700FCB969 /* API */,
+				2DA88AC01F48464700C79AB2 /* MapStyle.json */,
 				2DB3D1F11F48323A00FF8D9C /* Cells */,
 				2DB3D1EE1F48225100FF8D9C /* Model */,
 				2DB3D1D81F480BC900FF8D9C /* AppDelegate.swift */,
@@ -174,6 +188,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DA88AC11F48464700C79AB2 /* MapStyle.json in Resources */,
 				2DB3D1E31F480BC900FF8D9C /* LaunchScreen.storyboard in Resources */,
 				2DB3D1E01F480BC900FF8D9C /* Assets.xcassets in Resources */,
 				2DB3D1DE1F480BC900FF8D9C /* Main.storyboard in Resources */,
@@ -235,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D8C38FD1F485BD700FCB969 /* WebService.swift in Sources */,
 				2DB3D1DB1F480BC900FF8D9C /* ViewController.swift in Sources */,
 				2DB3D1D91F480BC900FF8D9C /* AppDelegate.swift in Sources */,
 				2DB3D1EC1F48158700FF8D9C /* ResultViewController.swift in Sources */,
@@ -379,6 +395,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PKUQ4ZWJH3;
 				INFOPLIST_FILE = SAC/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.freshworks.sac.SAC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -394,6 +411,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PKUQ4ZWJH3;
 				INFOPLIST_FILE = SAC/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.freshworks.sac.SAC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
