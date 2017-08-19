@@ -6,5 +6,5 @@ target 'SAC' do
   use_frameworks!
 
   # Pods for SAC
-
+    pod 'GoogleMaps', '= 2.3.0'
 end
