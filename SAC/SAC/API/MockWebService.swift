@@ -14,13 +14,13 @@ class MockService: WebService {
     
     func searchSuggestions(searchText: String, completion: @escaping ([Tag]?) -> Void) {
         
-        let tag1 = Tag.init(id: "1", name: "Anything")
-        let tag2 = Tag.init(id: "2", name: "Something")
-        let tag3 = Tag.init(id: "3", name: "Everything")
+        let tag1 = Tag.init(id: 1, name: "Anything")
+        let tag2 = Tag.init(id: 2, name: "Something")
+        let tag3 = Tag.init(id: 3, name: "Everything")
         completion([tag1, tag2, tag3])
     }
     
-    func fetchShops(tagID: String, latitude: Double, longitude: Double, completion: @escaping ([Shop]?) -> Void) {
+    func fetchShops(tagID: Int, latitude: Double, longitude: Double, completion: @escaping ([Shop]?) -> Void) {
         
         let shop1 =  Shop (name: "Shop1",
                            shopId: "1",

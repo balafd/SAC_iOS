@@ -11,75 +11,71 @@ import Alamofire
 
 class SACWebService: WebService {
     
-    var hostURL: String = "http://localhost:8080/"
+    var hostURL: String = "http://localhost:3006/"
     
-    func fetchShops(tagID: String, latitude: Double, longitude: Double, completion: @escaping ([Shop]?) -> Void) {
+    func fetchShops(tagID: Int, latitude: Double, longitude: Double, completion: @escaping ([Shop]?) -> Void) {
         let path = hostURL + "search"
+        let params : [String: Any] = ["tagId": tagID,
+                                      "latitude": latitude,
+                                      "longitude": longitude]
         Alamofire.request(
             URL(string: path)!,
             method: .get,
-            parameters: ["tagId": tagID, "lat": latitude, "long": longitude])
+            parameters: params)
             .validate()
+            .response(completionHandler: { (response) in
+                print("response :")
+                print(response)
+            })
             .responseJSON { (response) -> Void in
                 guard response.result.isSuccess else {
                     print("Error while fetching remote rooms: \(String(describing: response.result.error))")
                     completion(nil)
                     return
                 }
-                
                 guard let value = response.result.value as? [String: Any] else {
                     completion(nil)
                     return
                 }
                 print(value)
-                
-                //                                guard let value = response.result.value as? [String: Any], let rows = value["rows"] as? [[String: Any]] else {
-                //                        print("Malformed data received from fetchAllRooms service")
-                //                        completion(nil)
-                //                        return
-                //                }
-                //
-                //                let rooms = rows.flatMap({ (roomDict) -> RemoteRoom? in
-                //                    return RemoteRoom(jsonData: roomDict)
-                //                })
-                
                 completion([Shop]())
         }
     }
     
     func searchSuggestions(searchText: String, completion: @escaping ([Tag]?) -> Void) {
         let path = hostURL + "search_suggest"
+        let params : [String: Any] = ["search_text": searchText]
         Alamofire.request(
             URL(string: path)!,
             method: .get,
-            parameters: ["search_text": searchText])
+            parameters: params)
             .validate()
+            .response(completionHandler: { (response) in
+                print("response :")
+                print(response)
+            })
             .responseJSON { (response) -> Void in
                 guard response.result.isSuccess else {
-                    print("Error while fetching remote rooms: \(String(describing: response.result.error))")
+                    print("Error while fetching tags: \(String(describing: response.result.error))")
                     completion(nil)
                     return
                 }
-                
-                guard let value = response.result.value as? [String: Any] else {
-                    completion(nil)
+                guard let value = response.result.value as? [String: Any], let rows = value["results"] as? [[String:Any]], let statusCode = value["status_code"] else {
+                    completion([Tag]())
                     return
                 }
                 print(value)
-                
-                //                                guard let value = response.result.value as? [String: Any], let rows = value["rows"] as? [[String: Any]] else {
-                //                        print("Malformed data received from fetchAllRooms service")
-                //                        completion(nil)
-                //                        return
-                //                }
-                //
-                //                let rooms = rows.flatMap({ (roomDict) -> RemoteRoom? in
-                //                    return RemoteRoom(jsonData: roomDict)
-                //                })
-                
-                completion([Tag]())
+                let tags = rows.flatMap({ (tagDict) -> Tag? in
+                    do {
+                        return try Tag(jsonDict: tagDict)
+                    } catch {
+                        print("Error : " + error.localizedDescription)
+                        print(tagDict)
+                    }
+                    return nil
+                })
+                completion(tags)
         }
-        
     }
 }
 

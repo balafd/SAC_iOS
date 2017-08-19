@@ -14,9 +14,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     var myCurrentLocation : CLLocation?
     let locationManager = CLLocationManager()
-    let webService = MockService.init()
-    var results: [Shop]?
+    let webService = SACWebService.init()
+    var results: [Shop]? = [Shop]()
+    var tagSuggestions: [Tag]? = [Tag]()
     
+    @IBOutlet weak var tagsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -25,8 +27,10 @@ class ViewController: UIViewController {
         setupLocationManager(locationManager)
         configureProductSearchBar()
     }
+    
     func configureProductSearchBar() {
-        searchBar.placeholder = "Enter product name, eg: Shampoo"   
+        searchBar.placeholder = "eg: Tea"
+        searchBar.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,23 +39,43 @@ class ViewController: UIViewController {
     
     @IBAction func tappedSearchButton(_ sender: Any) {
 
-        self.showProgressHUD()
-        searchForShops()
     }
     
-    func searchForShops() {
+    func searchForShops(tagID: Int) {
         if let location = myCurrentLocation {
-            webService.fetchShops(tagID: "SearchText", latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, completion: { (shops) in
+            webService.fetchShops(tagID: tagID, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, completion: { (shops) in
                 
                 if let resultShops = shops {
                     print(resultShops)
-                    self.results = resultShops
-                    self.performSegue(withIdentifier: "ResultsPage", sender: nil)
+                    self.handleShopResult(result: resultShops)
                 } else {
                     print("Error in Fetching")
                 }
                 self.hideProgressHUD()
             })
+        }
+    }
+    
+    func handleShopResult(result: [Shop]) {
+        self.results = result
+        if result.count > 0 {
+            self.performSegue(withIdentifier: "ResultsPage", sender: nil)
+        } else {
+            let alert = UIAlertController.init(title: "Alert!", message: "Nothing found", preferredStyle: .alert)
+            alert.show(self, sender: nil);
+        }
+    }
+    
+    @objc func suggestTags()  {
+        let webS = SACWebService.init()
+        
+        webS.searchSuggestions(searchText: searchBar.text!) { (tagResult) in
+            if let tags = tagResult {
+                print("tags :")
+                print(tags)
+                self.tagSuggestions = tags
+                self.tagsTableView.reloadData()
+            }
         }
     }
     
@@ -85,6 +109,56 @@ extension ViewController : CLLocationManagerDelegate {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         print("locations = \(locValue.latitude) \(locValue.longitude)")
         myCurrentLocation = manager.location!
+    }
+}
+
+extension ViewController : UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (tagSuggestions?.count)!
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let tag = tagSuggestions?[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TagSuggestionCell") as! UITableViewCell
+        cell.textLabel?.text = tag?.name
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView.init()
+    }
+}
+
+extension ViewController : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let tag = tagSuggestions?[indexPath.row] {
+            searchBar.text = tag.name
+            self.showProgressHUD()
+            searchForShops(tagID: tag.id)
+        }
+    }
+}
+
+extension ViewController : UISearchBarDelegate {
+ 
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if let oldString = searchBar.text {
+            let newString = oldString.replacingCharacters(in: Range(range, in: oldString)!,
+                                                          with: text)
+            if newString.count >= 2 {
+                NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(ViewController.suggestTags), object: nil)
+                self.perform(#selector(ViewController.suggestTags), with: nil, afterDelay: 0.4)
+            }
+        }
+        return true
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
 

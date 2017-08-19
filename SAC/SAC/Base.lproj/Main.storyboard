@@ -27,36 +27,50 @@
                                 <rect key="frame" x="0.0" y="65" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFe-8d-uld">
-                                <rect key="frame" x="164" y="318.5" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dhr-se-4mL">
+                                <rect key="frame" x="0.0" y="121" width="375" height="546"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TagSuggestionCell" textLabel="biG-C8-liK" style="IBUITableViewCellStyleDefault" id="i8l-cL-Wt4">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i8l-cL-Wt4" id="5J0-Tv-4T1">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="biG-C8-liK">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <action selector="tappedSearchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JCd-6W-R0m"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="n93-IY-ovN"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="EZE-At-qdx"/>
                                 </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YiN-XT-4du">
-                                <rect key="frame" x="8" y="281" width="359" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="7YM-S7-DXg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1Eu-jL-Bl5"/>
-                            <constraint firstItem="YiN-XT-4du" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="4Xg-vz-9Ub"/>
-                            <constraint firstItem="wFe-8d-uld" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AcP-xG-UpV"/>
-                            <constraint firstItem="wFe-8d-uld" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bGL-eJ-Qvs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dhr-se-4mL" secondAttribute="trailing" id="2f8-bI-W7F"/>
+                            <constraint firstItem="dhr-se-4mL" firstAttribute="top" secondItem="7YM-S7-DXg" secondAttribute="bottom" id="2qt-QB-MNI"/>
+                            <constraint firstItem="dhr-se-4mL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5I4-5I-6B9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dhr-se-4mL" secondAttribute="bottom" id="g3S-5x-ISt"/>
                             <constraint firstItem="7YM-S7-DXg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hfK-LJ-Zyf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YiN-XT-4du" secondAttribute="trailing" constant="8" id="jgE-zk-ejp"/>
                             <constraint firstItem="7YM-S7-DXg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="1" id="nep-8H-7zd"/>
-                            <constraint firstItem="YiN-XT-4du" firstAttribute="top" secondItem="7YM-S7-DXg" secondAttribute="bottom" constant="160" id="sr6-zu-Vgt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Pgy-h9-JZR"/>
                     <connections>
                         <outlet property="searchBar" destination="7YM-S7-DXg" id="2Z7-Jd-piH"/>
+                        <outlet property="tagsTableView" destination="dhr-se-4mL" id="yr8-rI-fUZ"/>
                         <segue destination="jg3-tx-OHY" kind="show" identifier="ResultsPage" id="8SS-P7-yZv"/>
                     </connections>
                 </viewController>

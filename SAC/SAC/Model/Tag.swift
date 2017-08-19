@@ -8,14 +8,14 @@
 
 import Foundation
 struct Tag {
-    let id: String
+    let id: Int
     let name: String
 }
 
 extension Tag {
     init(jsonDict: [String: Any]) throws {
         self.init(
-            id: jsonDict["id"] as! String,
+            id: jsonDict["id"] as! Int,
             name: jsonDict["name"] as! String
         )
     }
