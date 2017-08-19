@@ -61,14 +61,3 @@ extension ViewController : CLLocationManagerDelegate {
     }
 }
 
-extension UIViewController  {
-    
-    func addShopMarker(title: String, position: CLLocationCoordinate2D, snippet: String, toMap: GMSMapView) {
-        let marker = GMSMarker()
-        marker.position = position
-        marker.title = title
-        marker.snippet = snippet
-        marker.map = toMap
-    }
-    
-}

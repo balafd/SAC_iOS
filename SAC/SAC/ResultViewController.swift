@@ -17,10 +17,20 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-//        self.navigationController?.setNavigationBarHidden(false, animated: true)
         configureMapView()
     }
+    
+    @IBAction func goBackToSearchView(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+}
+
+extension ResultViewController {
     
     func configureMapView() {
         
@@ -45,13 +55,29 @@ class ResultViewController: UIViewController {
             }
         }
     }
-
+    
     func updateMyCurrentLocation(location: CLLocation) {
         mapView.camera = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: 14)
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+}
+
+extension ResultViewController {
+    
+    func configureResultTableView() {
+        
+    }
+    
+    
+}
+
+extension UIViewController  {
+    
+    func addShopMarkerTag(title: String, position: CLLocationCoordinate2D, snippet: String, toMap: GMSMapView) {
+        let marker = GMSMarker()
+        marker.position = position
+        marker.title = title
+        marker.snippet = snippet
+        marker.map = toMap
     }
 }
 
