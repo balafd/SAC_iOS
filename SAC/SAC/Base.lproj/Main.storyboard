@@ -266,10 +266,10 @@
             </objects>
             <point key="canvasLocation" x="-1155" y="951"/>
         </scene>
-        <!--ViewShop-->
+        <!--Shop View Controller-->
         <scene sceneID="q3a-JN-RpC">
             <objects>
-                <viewController restorationIdentifier="ViewShop" storyboardIdentifier="ViewShop" title="ViewShop" id="BB7-MN-eNz" customClass="ShopViewController" customModule="SAC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ViewShop" storyboardIdentifier="ViewShop" id="BB7-MN-eNz" customClass="ShopViewController" customModule="SAC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OZq-sO-30u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -300,6 +300,40 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wh3-Py-yw1" userLabel="Trends">
                                 <rect key="frame" x="16" y="161.5" width="349" height="505.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrendCell" id="VS5-Zk-xFD" customClass="TrendViewCell" customModule="SAC" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="349" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VS5-Zk-xFD" id="bis-3g-S6R">
+                                            <rect key="frame" x="0.0" y="0.0" width="349" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RK6-3U-5HS" userLabel="trendname">
+                                                    <rect key="frame" x="10" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzH-lF-aIq" userLabel="count">
+                                                    <rect key="frame" x="257" y="10.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="RK6-3U-5HS" firstAttribute="leading" secondItem="bis-3g-S6R" secondAttribute="leading" constant="10" id="5Xn-ZA-YGu"/>
+                                                <constraint firstAttribute="trailing" secondItem="wzH-lF-aIq" secondAttribute="trailing" constant="50" id="aD5-Hf-hag"/>
+                                                <constraint firstItem="wzH-lF-aIq" firstAttribute="centerY" secondItem="bis-3g-S6R" secondAttribute="centerY" id="qHN-6v-43G"/>
+                                                <constraint firstItem="RK6-3U-5HS" firstAttribute="centerY" secondItem="bis-3g-S6R" secondAttribute="centerY" id="s3X-nA-56A"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="count" destination="wzH-lF-aIq" id="92z-1h-oQo"/>
+                                            <outlet property="trendname" destination="RK6-3U-5HS" id="erK-T5-fNN"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -318,6 +352,7 @@
                         <outlet property="addressLabel" destination="QHd-gN-fkc" id="FDG-Ok-kIA"/>
                         <outlet property="nameLabel" destination="1F4-sJ-Au4" id="T9j-cl-alr"/>
                         <outlet property="ownerLabel" destination="NqV-XE-qQ3" id="RTP-0a-PFz"/>
+                        <outlet property="trends" destination="wh3-Py-yw1" id="gQF-Gw-PRC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sZg-6c-PTK" userLabel="First Responder" sceneMemberID="firstResponder"/>

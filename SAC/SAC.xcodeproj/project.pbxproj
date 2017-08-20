@@ -23,6 +23,7 @@
 		C72AE4FA1F4917660044B3CF /* MapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = C72AE4F91F4917660044B3CF /* MapStyle.json */; };
 		C72AE4FC1F491BF50044B3CF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72AE4FB1F491BF50044B3CF /* RegisterViewController.swift */; };
 		C7BDD4811F492AD8007EADA2 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BDD4801F492AD8007EADA2 /* ShopViewController.swift */; };
+		C7BDD4831F493BB2007EADA2 /* TrendViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BDD4821F493BB2007EADA2 /* TrendViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		C72AE4F91F4917660044B3CF /* MapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MapStyle.json; sourceTree = "<group>"; };
 		C72AE4FB1F491BF50044B3CF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C7BDD4801F492AD8007EADA2 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		C7BDD4821F493BB2007EADA2 /* TrendViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendViewCell.swift; sourceTree = "<group>"; };
 		D87A2277E194D010ACC52034 /* Pods-SAC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SAC/Pods-SAC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				2DB3D1F21F48325500FF8D9C /* ShopCell.swift */,
+				C7BDD4821F493BB2007EADA2 /* TrendViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				2DB3D1EC1F48158700FF8D9C /* ResultViewController.swift in Sources */,
 				2D8C39071F48980600FCB969 /* Tag.swift in Sources */,
 				2DB3D1F01F48228F00FF8D9C /* Shop.swift in Sources */,
+				C7BDD4831F493BB2007EADA2 /* TrendViewCell.swift in Sources */,
 				2DB3D1F31F48325500FF8D9C /* ShopCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
