@@ -11,6 +11,7 @@
 		2D8C38FF1F48779200FCB969 /* MockWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C38FE1F48779200FCB969 /* MockWebService.swift */; };
 		2D8C39011F4877AE00FCB969 /* SACWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C39001F4877AE00FCB969 /* SACWebService.swift */; };
 		2D8C39071F48980600FCB969 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C39061F48980600FCB969 /* Tag.swift */; };
+		2D8C390E1F49675C00FCB969 /* TrendingTagsChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C390D1F49675C00FCB969 /* TrendingTagsChartViewController.swift */; };
 		2DB3D1D91F480BC900FF8D9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB3D1D81F480BC900FF8D9C /* AppDelegate.swift */; };
 		2DB3D1DB1F480BC900FF8D9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB3D1DA1F480BC900FF8D9C /* ViewController.swift */; };
 		2DB3D1DE1F480BC900FF8D9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB3D1DC1F480BC900FF8D9C /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		2D8C39001F4877AE00FCB969 /* SACWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SACWebService.swift; sourceTree = "<group>"; };
 		2D8C39021F487A2B00FCB969 /* SAC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SAC-Bridging-Header.h"; sourceTree = "<group>"; };
 		2D8C39061F48980600FCB969 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		2D8C390D1F49675C00FCB969 /* TrendingTagsChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTagsChartViewController.swift; sourceTree = "<group>"; };
 		2DB3D1D51F480BC900FF8D9C /* SAC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DB3D1D81F480BC900FF8D9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DB3D1DA1F480BC900FF8D9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,13 +107,13 @@
 				2DB3D1DA1F480BC900FF8D9C /* ViewController.swift */,
 				2DB3D1EA1F48158700FF8D9C /* ResultViewController.swift */,
 				C72AE4FB1F491BF50044B3CF /* RegisterViewController.swift */,
-				C7BDD4801F492AD8007EADA2 /* ShopViewController.swift */,
 				2DB3D1DC1F480BC900FF8D9C /* Main.storyboard */,
 				2DB3D1DF1F480BC900FF8D9C /* Assets.xcassets */,
 				2DB3D1E11F480BC900FF8D9C /* LaunchScreen.storyboard */,
 				2DB3D1E41F480BC900FF8D9C /* Info.plist */,
 				C7BDD4801F492AD8007EADA2 /* ShopViewController.swift */,
 				C71E775B1F4955B400241626 /* ProductAddViewController.swift */,
+				2D8C390D1F49675C00FCB969 /* TrendingTagsChartViewController.swift */,
 			);
 			path = SAC;
 			sourceTree = "<group>";
@@ -282,6 +284,7 @@
 				2D8C38FF1F48779200FCB969 /* MockWebService.swift in Sources */,
 				2DB3D1DB1F480BC900FF8D9C /* ViewController.swift in Sources */,
 				2DB3D1D91F480BC900FF8D9C /* AppDelegate.swift in Sources */,
+				2D8C390E1F49675C00FCB969 /* TrendingTagsChartViewController.swift in Sources */,
 				2D8C39011F4877AE00FCB969 /* SACWebService.swift in Sources */,
 				2DB3D1EC1F48158700FF8D9C /* ResultViewController.swift in Sources */,
 				2D8C39071F48980600FCB969 /* Tag.swift in Sources */,

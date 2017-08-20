@@ -264,7 +264,37 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAa-o4-x24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1155" y="951"/>
+            <point key="canvasLocation" x="-694" y="949"/>
+        </scene>
+        <!--Trending Tags Chart View Controller-->
+        <scene sceneID="L0i-Hu-400">
+            <objects>
+                <viewController id="Eqw-tW-YVs" customClass="TrendingTagsChartViewController" customModule="SAC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="0Jd-hk-hPi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zXn-pp-TUB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zXn-pp-TUB" firstAttribute="leading" secondItem="Cwd-ud-KiC" secondAttribute="leading" id="0Ix-kL-hum"/>
+                            <constraint firstItem="zXn-pp-TUB" firstAttribute="top" secondItem="0Jd-hk-hPi" secondAttribute="top" id="Rvh-dW-mPz"/>
+                            <constraint firstItem="Cwd-ud-KiC" firstAttribute="trailing" secondItem="zXn-pp-TUB" secondAttribute="trailing" id="lLn-2i-dqN"/>
+                            <constraint firstItem="Cwd-ud-KiC" firstAttribute="bottom" secondItem="zXn-pp-TUB" secondAttribute="bottom" id="udy-NL-3Cp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Cwd-ud-KiC"/>
+                    </view>
+                    <connections>
+                        <outlet property="barChartView" destination="zXn-pp-TUB" id="FBp-cF-5cU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Urp-Ph-LZ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-695" y="1666"/>
         </scene>
         <!--Shop View Controller-->
         <scene sceneID="q3a-JN-RpC">
@@ -357,6 +387,7 @@
                         <outlet property="nameLabel" destination="1F4-sJ-Au4" id="T9j-cl-alr"/>
                         <outlet property="ownerLabel" destination="NqV-XE-qQ3" id="RTP-0a-PFz"/>
                         <outlet property="trends" destination="wh3-Py-yw1" id="gQF-Gw-PRC"/>
+                        <segue destination="Eqw-tW-YVs" kind="show" identifier="showTrendingTagsChart" id="tTT-61-qvi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sZg-6c-PTK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -389,7 +420,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iag-YO-8sf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1149" y="972"/>
+            <point key="canvasLocation" x="1012" y="949"/>
         </scene>
     </scenes>
     <resources>

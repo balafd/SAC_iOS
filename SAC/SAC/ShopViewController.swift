@@ -46,15 +46,12 @@ class ShopViewController: UIViewController  {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ProductAdd") as! ProductAddViewController
         self.navigationController?.pushViewController(nextViewController, animated:true)
-
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
 }
-
 
 extension ShopViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int{
@@ -95,5 +92,18 @@ extension ShopViewController: UITableViewDataSource {
         cell.count.text = "\(trendingTag.count)"
         return cell
     }
+}
+
+extension ShopViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showTrendingTagsChart", sender: nil)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showTrendingTagsChart" {
+            if let chartViewController = segue.destination as? TrendingTagsChartViewController {
+                
+            }
+        }
+    }
 }
