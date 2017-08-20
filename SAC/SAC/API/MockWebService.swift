@@ -10,8 +10,30 @@ import Foundation
 
 class MockService: WebService {
     
-    func fetchShopDetail(shopID: Int, completion: @escaping (Shop?, [Tag]?, [String: Any]?) -> Void) {
+    func fetchShopDetail(shopID: Int, completion: @escaping (Shop?, [TrendingTag]?, [TrendingTag]?) -> Void) {
+    
+        let shop = Shop.init(id: 674,
+                             name: "Annan Kadai",
+                             phone: "8849499299",
+                             latitude: 20.412,
+                             longitude: 80.452,
+                             address: "44sks kksk k",
+                             ownerName: "bala")
         
+        let taf = Tag.init(id: 1, name: "Shampoo")
+        let taf1 = Tag.init(id: 2, name: "Hair oil")
+        
+        let inventoryTrendTag1 = TrendingTag.init(tag: taf, count: 14)
+        let inventoryTrendTag2 = TrendingTag.init(tag: taf1, count: 53)
+        let inventoryTrendTags = [inventoryTrendTag1, inventoryTrendTag2]
+        
+        let tagSuggested1 = Tag.init(id: 11, name: "Tooth Paste")
+        let tagSuggested2 = Tag.init(id: 22, name: "Scrub")
+        
+        let suggestedTrendTag1 = TrendingTag.init(tag: tagSuggested1, count: 43)
+        let suggestedTrendTag2 = TrendingTag.init(tag: tagSuggested2, count: 13)
+        let suggestedTrends = [suggestedTrendTag1, suggestedTrendTag2]
+        completion(shop, inventoryTrendTags, suggestedTrends)
     }
     
     func registerShop(shop: Shop, description: String, tags: String, completion: @escaping (Int?) -> Void) {

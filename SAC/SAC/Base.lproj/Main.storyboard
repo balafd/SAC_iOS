@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Aoq-Gb-4QH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Aoq-Gb-4QH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -250,7 +250,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="U4L-03-klb">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U4L-03-klb" id="dn6-P4-u2N">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U4L-03-klb" id="dn6-P4-u2N">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
@@ -304,7 +304,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrendCell" id="VS5-Zk-xFD" customClass="TrendViewCell" customModule="SAC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="349" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VS5-Zk-xFD" id="bis-3g-S6R">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VS5-Zk-xFD" id="bis-3g-S6R">
                                             <rect key="frame" x="0.0" y="0.0" width="349" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -334,6 +334,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BB7-MN-eNz" id="8Cw-Ip-V3c"/>
+                                    <outlet property="delegate" destination="BB7-MN-eNz" id="FkG-7a-yr9"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -349,9 +353,9 @@
                         <viewLayoutGuide key="safeArea" id="cJm-It-X4F"/>
                     </view>
                     <connections>
-                        <outlet property="address" destination="QHd-gN-fkc" id="UB5-v8-tQD"/>
-                        <outlet property="name" destination="1F4-sJ-Au4" id="ZSJ-fT-Iyi"/>
-                        <outlet property="owner" destination="NqV-XE-qQ3" id="Hq7-1T-5ee"/>
+                        <outlet property="addressLabel" destination="QHd-gN-fkc" id="FDG-Ok-kIA"/>
+                        <outlet property="nameLabel" destination="1F4-sJ-Au4" id="T9j-cl-alr"/>
+                        <outlet property="ownerLabel" destination="NqV-XE-qQ3" id="RTP-0a-PFz"/>
                         <outlet property="trends" destination="wh3-Py-yw1" id="gQF-Gw-PRC"/>
                     </connections>
                 </viewController>
@@ -371,7 +375,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="xHh-bv-IwL">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xHh-bv-IwL" id="LI7-Ap-7rl">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xHh-bv-IwL" id="LI7-Ap-7rl">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>

@@ -10,11 +10,11 @@ import Foundation
 import Alamofire
 
 class SACWebService: WebService {
-    
-    func fetchShopDetail(shopID: Int, completion: @escaping (Shop?, [Tag]?, [String : Any]?) -> Void) {
-        
+
+    func fetchShopDetail(shopID: Int, completion: @escaping (Shop?, [TrendingTag]?, [TrendingTag]?) -> Void) {
+
         let path = hostURL + "shop/" + String(shopID)
-        
+
         Alamofire.request(
             URL(string: path)!,
             method: .post,
@@ -26,11 +26,10 @@ class SACWebService: WebService {
             })
             .responseJSON { (response) -> Void in
                 guard response.result.isSuccess else {
-                    print("Error while fetching remote rooms: \(String(describing: response.result.error))")
+                    print("Error while fetching shop details: \(String(describing: response.result.error))")
                     completion(nil, nil, nil)
                     return
                 }
-                
                 guard let value = response.result.value as? [String: Any], let result = value["results"] as? [String: Any], let statusCode = value["status_code"] as? Int else {
                     completion(nil, nil, nil)
                     return
@@ -38,12 +37,12 @@ class SACWebService: WebService {
                 if statusCode != 200 {
                     completion(nil, nil, nil)
                 } else {
+                    print("result : ")
                     print(result)
-
                 }
         }
     }
-    
+
     func registerShop(shop: Shop, description: String, tags: String, completion: @escaping (Int?) -> Void) {
         let path = hostURL + "shop"
 
@@ -67,11 +66,11 @@ class SACWebService: WebService {
             })
             .responseJSON { (response) -> Void in
                 guard response.result.isSuccess else {
-                    print("Error while fetching remote rooms: \(String(describing: response.result.error))")
+                    print("Error while registering: \(String(describing: response.result.error))")
                     completion(nil)
                     return
                 }
-                
+
                 guard let value = response.result.value as? [String: Any], let shopID = value["results"] as? Int, let statusCode = value["status_code"] as? Int else {
                     completion(nil)
                     return
@@ -83,9 +82,11 @@ class SACWebService: WebService {
                 }
         }
     }
-    
-    var hostURL: String = "http://192.168.2.71:3006/"
-    
+
+
+    var hostURL: String = "http://localhost:3006/"
+
+
     func fetchShops(tagID: Int, latitude: Double, longitude: Double, completion: @escaping ([Shop]?) -> Void) {
         let path = hostURL + "search"
         let params : [String: Any] = ["tagId": tagID,
@@ -128,7 +129,7 @@ class SACWebService: WebService {
                 }
         }
     }
-    
+
     func searchSuggestions(searchText: String, completion: @escaping ([Tag]?) -> Void) {
         let path = hostURL + "search_suggest"
         let params : [String: Any] = ["search_text": searchText]
@@ -152,7 +153,7 @@ class SACWebService: WebService {
                     return
                 }
                 print(value)
-                
+
                 if statusCode != 200 {
                     completion([Tag]())
                     return
@@ -171,4 +172,3 @@ class SACWebService: WebService {
         }
     }
 }
-
