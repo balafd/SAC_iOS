@@ -16,13 +16,16 @@ class RegisterViewController: FormViewController {
         self.tableView.separatorStyle = .none
         createForm()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+
     func createForm(){
-        var form = FormDescriptor()
+        let form = FormDescriptor()
         form.title = "Example form"
         
         // Define first section
-        var section1 = FormSectionDescriptor(headerTitle: "Create shop", footerTitle: "");
+        let section1 = FormSectionDescriptor(headerTitle: "Create shop", footerTitle: "");
         
         var row = FormRowDescriptor(tag: "name", type: .email, title: "Name")
         section1.rows.append(row)
@@ -35,14 +38,26 @@ class RegisterViewController: FormViewController {
 
         row = FormRowDescriptor(tag: "owner", type: .phone, title: "Owner")
         section1.rows.append(row)
+
+        row = FormRowDescriptor(tag: "tags", type: .phone, title: "Tags")
+        section1.rows.append(row)
         
         row = FormRowDescriptor(tag: "button", type: .button, title: "Submit")
+        row.configuration.button.didSelectClosure = { _ in
+            
+//            self.form.formValues().forEach({ (<#(key: String, value: AnyObject)#>) in
+//                <#code#>
+//            })
+
+            
+        }
         section1.rows.append(row)
         
         form.sections = [section1]
         
         self.form = form
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
