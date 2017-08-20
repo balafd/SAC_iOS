@@ -22,6 +22,7 @@ class ShopViewController: UIViewController  {
         super.viewDidLoad()
         let webService = MockService.init()
         let shopID = UserDefaults.standard.integer(forKey: "shopID")
+        trends.separatorStyle = .none
 
         webService.fetchShopDetail(shopID: shopID) { (shop, inventoryTags, suggestedTrendingTags) in
             if let _ = shop {
@@ -70,6 +71,19 @@ extension ShopViewController: UITableViewDataSource {
             return 0
         }
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Inventory Trends"
+        case 1:
+            return "Suggested Trends"
+        default:
+            return "Section"
+        }
+        return "Section"
+    }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TrendCell", for: indexPath) as? TrendViewCell  else {
