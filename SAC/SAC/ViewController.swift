@@ -9,7 +9,6 @@
 import UIKit
 import GoogleMaps
 import MBProgressHUD
-import DYQRCodeDecoder
 
 class ViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
@@ -230,21 +229,3 @@ extension UIViewController {
     }
 }
 
-extension ViewController {
-    
-    func qrReader() {
-        
-       guard let reader =  DYQRCodeDecoderViewController.init(completion: { (succeeded, result) in
-            if let scannedText = result {
-                print(scannedText)
-            }
-       }) else {
-        return
-        }
-        reader.needsScanAnnimation = true
-        
-        let navi = UINavigationController.init(rootViewController: reader)
-        present(navi, animated: true) {
-        }
-    }
-}

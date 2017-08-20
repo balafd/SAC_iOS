@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftForms
+import DYQRCodeDecoder
 
 class ProductAddViewController: FormViewController {
 
@@ -34,10 +35,30 @@ class ProductAddViewController: FormViewController {
     }
 
     @objc func showQR(){
-        
+        qrReader()
     }
   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 }
+
+extension ProductAddViewController {
+    
+    func qrReader() {
+        
+        guard let reader =  DYQRCodeDecoderViewController.init(completion: { (succeeded, result) in
+            if let scannedText = result {
+                print(scannedText)
+            }
+        }) else {
+            return
+        }
+        reader.needsScanAnnimation = true
+        
+        let navi = UINavigationController.init(rootViewController: reader)
+        present(navi, animated: true) {
+        }
+    }
+}
+
