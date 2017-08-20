@@ -359,6 +359,34 @@
             </objects>
             <point key="canvasLocation" x="126" y="950"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="Glq-Cq-JHR">
+            <objects>
+                <tableViewController restorationIdentifier="ProductAdd" storyboardIdentifier="ProductAdd" id="JQy-xx-GcO" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WdZ-wR-DWp" userLabel="productAdd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="xHh-bv-IwL">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xHh-bv-IwL" id="LI7-Ap-7rl">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="JQy-xx-GcO" id="gOq-r1-kTp"/>
+                            <outlet property="delegate" destination="JQy-xx-GcO" id="5dW-2n-I2d"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iag-YO-8sf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1149" y="972"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Logo" width="587" height="93"/>

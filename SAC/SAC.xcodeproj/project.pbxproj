@@ -20,6 +20,7 @@
 		2DB3D1F01F48228F00FF8D9C /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB3D1EF1F48228F00FF8D9C /* Shop.swift */; };
 		2DB3D1F31F48325500FF8D9C /* ShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB3D1F21F48325500FF8D9C /* ShopCell.swift */; };
 		79791AC06DF69C0F6A541DC7 /* Pods_SAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5FBBF291CCEA9B61F6FA522 /* Pods_SAC.framework */; };
+		C71E775C1F4955B400241626 /* ProductAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71E775B1F4955B400241626 /* ProductAddViewController.swift */; };
 		C72AE4FA1F4917660044B3CF /* MapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = C72AE4F91F4917660044B3CF /* MapStyle.json */; };
 		C72AE4FC1F491BF50044B3CF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72AE4FB1F491BF50044B3CF /* RegisterViewController.swift */; };
 		C7BDD4811F492AD8007EADA2 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BDD4801F492AD8007EADA2 /* ShopViewController.swift */; };
@@ -44,6 +45,7 @@
 		2DB3D1EF1F48228F00FF8D9C /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		2DB3D1F21F48325500FF8D9C /* ShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCell.swift; sourceTree = "<group>"; };
 		A5FBBF291CCEA9B61F6FA522 /* Pods_SAC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SAC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C71E775B1F4955B400241626 /* ProductAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAddViewController.swift; sourceTree = "<group>"; };
 		C72AE4F91F4917660044B3CF /* MapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MapStyle.json; sourceTree = "<group>"; };
 		C72AE4FB1F491BF50044B3CF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C7BDD4801F492AD8007EADA2 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				2DB3D1E11F480BC900FF8D9C /* LaunchScreen.storyboard */,
 				2DB3D1E41F480BC900FF8D9C /* Info.plist */,
 				C7BDD4801F492AD8007EADA2 /* ShopViewController.swift */,
+				C71E775B1F4955B400241626 /* ProductAddViewController.swift */,
 			);
 			path = SAC;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			files = (
 				2D8C38FD1F485BD700FCB969 /* WebService.swift in Sources */,
 				C72AE4FC1F491BF50044B3CF /* RegisterViewController.swift in Sources */,
+				C71E775C1F4955B400241626 /* ProductAddViewController.swift in Sources */,
 				C7BDD4811F492AD8007EADA2 /* ShopViewController.swift in Sources */,
 				2D8C38FF1F48779200FCB969 /* MockWebService.swift in Sources */,
 				2DB3D1DB1F480BC900FF8D9C /* ViewController.swift in Sources */,

@@ -18,7 +18,7 @@ class MockService: WebService {
         
     }
     
-    var hostURL: String = "http://192.168.1.2:3006/"
+    var hostURL: String = "http://192.168.2.71:3006/"
     
     func searchSuggestions(searchText: String, completion: @escaping ([Tag]?) -> Void) {
         

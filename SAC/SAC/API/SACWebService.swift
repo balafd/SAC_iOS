@@ -84,7 +84,7 @@ class SACWebService: WebService {
         }
     }
     
-    var hostURL: String = "http://192.168.1.3:3006/"
+    var hostURL: String = "http://192.168.2.71:3006/"
     
     func fetchShops(tagID: Int, latitude: Double, longitude: Double, completion: @escaping ([Shop]?) -> Void) {
         let path = hostURL + "search"
