@@ -48,12 +48,12 @@ extension ProductAddViewController {
     func qrReader() {
         
         guard let reader =  DYQRCodeDecoderViewController.init(completion: { (succeeded, result) in
-            if let scannedText = result {
-                print(scannedText)
-            }
+            self.form.sections[0].rows[0].value = "Pencils" as AnyObject
+            self.tableView.reloadData()
         }) else {
             return
         }
+        reader.rightBarButtonItem = nil
         reader.needsScanAnnimation = true
         
         let navi = UINavigationController.init(rootViewController: reader)

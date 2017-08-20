@@ -24,8 +24,6 @@ UIImagePickerControllerDelegate> {
     CGRect _lineRect1;
 }
 
-@property (nonatomic, strong, readwrite) UIBarButtonItem * leftBarButtonItem;
-@property (nonatomic, strong, readwrite) UIBarButtonItem * rightBarButtonItem;
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;

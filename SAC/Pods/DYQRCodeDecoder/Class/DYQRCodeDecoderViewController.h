@@ -10,8 +10,8 @@
 
 @interface DYQRCodeDecoderViewController : UIViewController
 
-@property (nonatomic, strong, readonly) UIBarButtonItem * leftBarButtonItem;
-@property (nonatomic, strong, readonly) UIBarButtonItem * rightBarButtonItem;
+@property (nonatomic, strong, readwrite) UIBarButtonItem * leftBarButtonItem;
+@property (nonatomic, strong, readwrite) UIBarButtonItem * rightBarButtonItem;
 @property (nonatomic, strong) UIColor * navigationBarTintColor;
 @property (nonatomic, strong) UIImage * frameImage;
 @property (nonatomic, strong) UIImage * lineImage;
