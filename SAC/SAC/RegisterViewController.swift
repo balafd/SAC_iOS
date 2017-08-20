@@ -48,7 +48,7 @@ class RegisterViewController: FormViewController {
 //            self.form.formValues().forEach({ (<#(key: String, value: AnyObject)#>) in
 //                <#code#>
 //            })
-
+            // set UserDefaults.standard.bool(forKey: "hasRegistered"); after completion
             
         }
         section1.rows.append(row)
