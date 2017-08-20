@@ -10,7 +10,7 @@ import Foundation
 
 class MockService: WebService {
     
-    func fetchShopDetail(shopID: Int, completion: @escaping (Shop?, [Tag]?, [String: Any]?) -> Void) {
+    func fetchShopDetail(shopID: Int, completion: @escaping (Shop?, [TrendingTag]?, [TrendingTag]?) -> Void) {
     
         let shop = Shop.init(id: 674,
                              name: "Annan Kadai",
@@ -20,21 +20,27 @@ class MockService: WebService {
                              address: "44sks kksk k",
                              ownerName: "bala")
         
-        let taf = Tag.init(id: 1, name: "Addd")
-        let taf1 = Tag.init(id: 2, name: "Dd")
-        let tags = [taf, taf1]
+        let taf = Tag.init(id: 1, name: "Shampoo")
+        let taf1 = Tag.init(id: 2, name: "Hair oil")
         
+        let inventoryTrendTag1 = TrendingTag.init(tag: taf, count: 14)
+        let inventoryTrendTag2 = TrendingTag.init(tag: taf1, count: 53)
+        let inventoryTrendTags = [inventoryTrendTag1, inventoryTrendTag2]
         
+        let tagSuggested1 = Tag.init(id: 11, name: "Tooth Paste")
+        let tagSuggested2 = Tag.init(id: 22, name: "Scrub")
         
-        
-        completion(shop, tags, nil)
+        let suggestedTrendTag1 = TrendingTag.init(tag: tagSuggested1, count: 43)
+        let suggestedTrendTag2 = TrendingTag.init(tag: tagSuggested2, count: 13)
+        let suggestedTrends = [suggestedTrendTag1, suggestedTrendTag2]
+        completion(shop, inventoryTrendTags, suggestedTrends)
     }
     
     func registerShop(shop: Shop, description: String, tags: String, completion: @escaping (Int?) -> Void) {
         
     }
     
-    var hostURL: String = "http://192.168.1.2:3006/"
+    var hostURL: String = "http://192.168.2.71:3006/"
     
     func searchSuggestions(searchText: String, completion: @escaping ([Tag]?) -> Void) {
         

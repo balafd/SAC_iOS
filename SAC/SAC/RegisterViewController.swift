@@ -33,13 +33,13 @@ class RegisterViewController: FormViewController {
         row = FormRowDescriptor(tag: "phone", type: .phone, title: "Phone Number")
         section1.rows.append(row)
 
-        row = FormRowDescriptor(tag: "address", type: .multilineText, title: "Address")
+        row = FormRowDescriptor(tag: "address", type: .text, title: "Address")
         section1.rows.append(row)
 
         row = FormRowDescriptor(tag: "owner", type: .text, title: "Owner")
         section1.rows.append(row)
 
-        row = FormRowDescriptor(tag: "tags", type: .multilineText, title: "Tags")
+        row = FormRowDescriptor(tag: "tags", type: .text, title: "Tags")
         section1.rows.append(row)
         
         row = FormRowDescriptor(tag: "button", type: .button, title: "Submit")

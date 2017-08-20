@@ -90,7 +90,6 @@ extension ResultViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let selectedShop = results?[indexPath.row]
         if let shop = selectedShop {
             print(shop.name)

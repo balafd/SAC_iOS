@@ -10,11 +10,11 @@ import Foundation
 import Alamofire
 
 class SACWebService: WebService {
-    
-    func fetchShopDetail(shopID: Int, completion: @escaping (Shop?, [Tag]?, [String : Any]?) -> Void) {
-        
+
+    func fetchShopDetail(shopID: Int, completion: @escaping (Shop?, [TrendingTag]?, [TrendingTag]?) -> Void) {
+
         let path = hostURL + "shop/" + String(shopID)
-        
+
         Alamofire.request(
             URL(string: path)!,
             method: .post,
@@ -42,7 +42,7 @@ class SACWebService: WebService {
                 }
         }
     }
-    
+
     func registerShop(shop: Shop, description: String, tags: String, completion: @escaping (Int?) -> Void) {
         let path = hostURL + "shop"
 
@@ -70,7 +70,7 @@ class SACWebService: WebService {
                     completion(nil)
                     return
                 }
-                
+
                 guard let value = response.result.value as? [String: Any], let shopID = value["results"] as? Int, let statusCode = value["status_code"] as? Int else {
                     completion(nil)
                     return
@@ -82,9 +82,11 @@ class SACWebService: WebService {
                 }
         }
     }
-    
+
+
     var hostURL: String = "http://localhost:3006/"
-    
+
+
     func fetchShops(tagID: Int, latitude: Double, longitude: Double, completion: @escaping ([Shop]?) -> Void) {
         let path = hostURL + "search"
         let params : [String: Any] = ["tagId": tagID,
@@ -127,7 +129,7 @@ class SACWebService: WebService {
                 }
         }
     }
-    
+
     func searchSuggestions(searchText: String, completion: @escaping ([Tag]?) -> Void) {
         let path = hostURL + "search_suggest"
         let params : [String: Any] = ["search_text": searchText]
@@ -151,7 +153,7 @@ class SACWebService: WebService {
                     return
                 }
                 print(value)
-                
+
                 if statusCode != 200 {
                     completion([Tag]())
                     return
@@ -170,4 +172,3 @@ class SACWebService: WebService {
         }
     }
 }
-
