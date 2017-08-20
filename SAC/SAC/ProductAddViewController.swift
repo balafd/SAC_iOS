@@ -26,6 +26,16 @@ class ProductAddViewController: FormViewController {
         self.form = form
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        let addProduct : UIBarButtonItem = UIBarButtonItem(title: "Scan Product", style: .plain, target: self, action: #selector(ProductAddViewController.showQR))
+        self.navigationItem.rightBarButtonItem = addProduct
+    }
+
+    @objc func showQR(){
+        
+    }
   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
