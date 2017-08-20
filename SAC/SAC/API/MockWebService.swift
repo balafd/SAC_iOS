@@ -22,15 +22,15 @@ class MockService: WebService {
     
     func fetchShops(tagID: Int, latitude: Double, longitude: Double, completion: @escaping ([Shop]?) -> Void) {
         
-        let shop1 =  Shop (name: "Shop1",
-                           shopId: "1",
-                           contactNumber: "+91 9944991225",
+        let shop1 =  Shop (id: 1,
+                           name: "Shop1",
+                           phone: "+91 9944991225",
                            latitude: 12.96099,
                            longitude: 80.24099,
                            address: "Perungudi - 635")
-        let shop2 =  Shop (name: "Shop2",
-                           shopId: "2",
-                           contactNumber: "9944991225",
+        let shop2 =  Shop (id: 2,
+                           name: "Shop2",
+                           phone: "9944991225",
                            latitude: 12.96192,
                            longitude: 80.24192,
                            address: "Perungudi - 600096")

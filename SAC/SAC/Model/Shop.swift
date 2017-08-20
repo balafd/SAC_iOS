@@ -8,10 +8,33 @@
 
 import Foundation
 struct Shop {
+    let id: Int
     let name: String
-    let shopId: String
-    let contactNumber: String
+    let phone: String
     let latitude: Double
     let longitude: Double
     let address: String
 }
+
+extension Shop {
+    init(jsonDict: [String: Any]) throws {
+        self.init(
+            id: jsonDict["id"] as! Int,
+            name: jsonDict["name"] as! String,
+            phone: jsonDict["phone"] as! String,
+            latitude: jsonDict["latitude"] as! Double,
+            longitude: jsonDict["longitude"] as! Double,
+            address: jsonDict["address"] as! String
+            
+        )
+    }
+}
+
+
+//address = "26, Srinivasa Nagar, Kandanchavadi, Perungudi, Chennai";
+//id = 1;
+//latitude = "12.9693";
+//longitude = "80.2486";
+//name = "Junior Kuppanna";
+//phone = 0987654321;
+

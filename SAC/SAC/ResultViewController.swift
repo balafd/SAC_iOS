@@ -118,7 +118,7 @@ extension ResultViewController: UITableViewDataSource {
 extension ResultViewController : ShopCellProtocol {
     func didTapCall(shop: Shop) {
         
-        let phone = "tel://\(shop.contactNumber)"
+        let phone = "tel://\(shop.phone)"
         if let url = URL(string: phone) {
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -164,7 +164,7 @@ extension UIViewController  {
         let position = CLLocationCoordinate2DMake(shop.latitude, shop.longitude)
         marker.position = position
         marker.title = shop.name
-        marker.snippet = shop.contactNumber
+        marker.snippet = shop.phone
         marker.map = toMap
     }
 }

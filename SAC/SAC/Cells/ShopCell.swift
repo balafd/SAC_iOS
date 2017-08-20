@@ -32,7 +32,7 @@ class ShopCell: UITableViewCell {
     func configureCell(shop: Shop) {
         self.shop = shop
         nameLabel.text = shop.name
-        contactNumberLabel.text = shop.contactNumber
+        contactNumberLabel.text = shop.phone
     }
     
     @IBAction func didTapCall(_ sender: Any) {

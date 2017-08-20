@@ -33,12 +33,26 @@ class SACWebService: WebService {
                     completion(nil)
                     return
                 }
-                guard let value = response.result.value as? [String: Any] else {
+                guard let value = response.result.value as? [String: Any], let rows = value["results"] as? [[String:Any]], let statusCode = value["status_code"] as? Int else {
                     completion(nil)
                     return
                 }
-                print(value)
-                completion([Shop]())
+                if statusCode != 200 {
+                    completion([Shop]())
+                    return
+                } else {
+                    print(value)
+                    let shops = rows.flatMap({ (shopDict) -> Shop? in
+                        do {
+                            return try Shop(jsonDict: shopDict)
+                        } catch {
+                            print("Error : " + error.localizedDescription)
+                            print(shopDict)
+                        }
+                        return nil
+                    })
+                    completion(shops)
+                }
         }
     }
     
@@ -60,21 +74,27 @@ class SACWebService: WebService {
                     completion(nil)
                     return
                 }
-                guard let value = response.result.value as? [String: Any], let rows = value["results"] as? [[String:Any]], let statusCode = value["status_code"] else {
+                guard let value = response.result.value as? [String: Any], let rows = value["results"] as? [[String:Any]], let statusCode = value["status_code"] as? Int else {
                     completion([Tag]())
                     return
                 }
                 print(value)
-                let tags = rows.flatMap({ (tagDict) -> Tag? in
-                    do {
-                        return try Tag(jsonDict: tagDict)
-                    } catch {
-                        print("Error : " + error.localizedDescription)
-                        print(tagDict)
-                    }
-                    return nil
-                })
-                completion(tags)
+                
+                if statusCode != 200 {
+                    completion([Tag]())
+                    return
+                } else {
+                    let tags = rows.flatMap({ (tagDict) -> Tag? in
+                        do {
+                            return try Tag(jsonDict: tagDict)
+                        } catch {
+                            print("Error : " + error.localizedDescription)
+                            print(tagDict)
+                        }
+                        return nil
+                    })
+                    completion(tags)
+                }
         }
     }
 }
