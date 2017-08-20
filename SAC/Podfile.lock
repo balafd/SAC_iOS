@@ -3,6 +3,7 @@ PODS:
   - Charts (3.0.2):
     - Charts/Core (= 3.0.2)
   - Charts/Core (3.0.2)
+  - DYQRCodeDecoder (1.1.2)
   - GoogleMaps (2.3.0):
     - GoogleMaps/Maps (= 2.3.0)
   - GoogleMaps/Base (2.3.0)
@@ -14,6 +15,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Charts
+  - DYQRCodeDecoder
   - GoogleMaps (= 2.3.0)
   - MBProgressHUD
   - SwiftForms
@@ -21,10 +23,11 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
+  DYQRCodeDecoder: 8468610fa383361fba4e9c84711a56e6d8ed3169
   GoogleMaps: 340a6a0bebd17c2db8abcd3921976c7c53c86cb8
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   SwiftForms: 3f3dbaa79fe54eb1ccd0aca8d0cd1e38eb00537e
 
-PODFILE CHECKSUM: 3a8c5ba717f2b8075403f641235792946edc800d
+PODFILE CHECKSUM: c5d4bc2eb59f60a76c7f3b3e8e80c2f2af1771bd
 
 COCOAPODS: 1.2.1

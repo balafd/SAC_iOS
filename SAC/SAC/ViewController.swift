@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import MBProgressHUD
+import DYQRCodeDecoder
 
 class ViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
@@ -19,6 +20,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var registerShop: UIButton!
     @IBOutlet weak var tagsTableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -43,14 +45,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func shopAction(_ sender: Any) {
+        
         let hasRegiseterd = UserDefaults.standard.bool(forKey: "hasRegistered");
-//        if (hasRegiseterd) {
-//            goToShop()
-//        } else {
-//            goToRegister()
-//        }
-        goToShop()
-
+        if (hasRegiseterd) {
+            goToShop()
+        } else {
+            goToRegister()
+        }
     }
     
     func goToShop(){
@@ -229,3 +230,21 @@ extension UIViewController {
     }
 }
 
+extension ViewController {
+    
+    func qrReader() {
+        
+       guard let reader =  DYQRCodeDecoderViewController.init(completion: { (succeeded, result) in
+            if let scannedText = result {
+                print(scannedText)
+            }
+       }) else {
+        return
+        }
+        reader.needsScanAnnimation = true
+        
+        let navi = UINavigationController.init(rootViewController: reader)
+        present(navi, animated: true) {
+        }
+    }
+}

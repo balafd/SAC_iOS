@@ -11,4 +11,5 @@ target 'SAC' do
     pod 'MBProgressHUD'
     pod 'SwiftForms'
     pod 'Charts'
+    pod 'DYQRCodeDecoder'
 end
