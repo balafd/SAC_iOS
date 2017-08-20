@@ -10,6 +10,40 @@ import Foundation
 import Alamofire
 
 class SACWebService: WebService {
+    
+    func fetchShopDetail(shopID: Int, completion: @escaping (Shop?, [Tag]?, [String : Any]?) -> Void) {
+        
+        let path = hostURL + "shop/" + String(shopID)
+        
+        Alamofire.request(
+            URL(string: path)!,
+            method: .post,
+            parameters: nil)
+            .validate()
+            .response(completionHandler: { (response) in
+                print("response :")
+                print(response)
+            })
+            .responseJSON { (response) -> Void in
+                guard response.result.isSuccess else {
+                    print("Error while fetching remote rooms: \(String(describing: response.result.error))")
+                    completion(nil, nil, nil)
+                    return
+                }
+                
+                guard let value = response.result.value as? [String: Any], let result = value["results"] as? [String: Any], let statusCode = value["status_code"] as? Int else {
+                    completion(nil, nil, nil)
+                    return
+                }
+                if statusCode != 200 {
+                    completion(nil, nil, nil)
+                } else {
+                    print(result)
+
+                }
+        }
+    }
+    
     func registerShop(shop: Shop, description: String, tags: String, completion: @escaping (Int?) -> Void) {
         let path = hostURL + "shop"
 

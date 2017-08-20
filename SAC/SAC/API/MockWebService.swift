@@ -9,10 +9,14 @@
 import Foundation
 
 class MockService: WebService {
-    func registerShop(shop: Shop, description: String, tags: String, completion: @escaping (Int?) -> Void) {
+    
+    func fetchShopDetail(shopID: Int, completion: @escaping (Shop?, [Tag]?, [String: Any]?) -> Void) {
         
     }
     
+    func registerShop(shop: Shop, description: String, tags: String, completion: @escaping (Int?) -> Void) {
+        
+    }
     
     var hostURL: String = "http://192.168.1.2:3006/"
     

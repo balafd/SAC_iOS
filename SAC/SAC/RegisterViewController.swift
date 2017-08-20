@@ -43,6 +43,7 @@ class RegisterViewController: FormViewController {
         section1.rows.append(row)
         
         row = FormRowDescriptor(tag: "button", type: .button, title: "Submit")
+        
         row.configuration.button.didSelectClosure = { _ in
             
             var name: String?
@@ -67,7 +68,8 @@ class RegisterViewController: FormViewController {
                     tags = value as? String
                 }
             })
-            
+
+
             self.showProgressHUD()
             if let appDelegate = UIApplication.shared .delegate as? AppDelegate {
                 if let location = appDelegate.myCurrentLocation {
@@ -87,6 +89,7 @@ class RegisterViewController: FormViewController {
         section1.rows.append(row)
         form.sections = [section1]
         self.form = form
+        self.form.validateForm()
     }
 
     override func didReceiveMemoryWarning() {

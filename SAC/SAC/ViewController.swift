@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         let hasRegiseterd = UserDefaults.standard.bool(forKey: "hasRegistered");
         if (hasRegiseterd){
             registerShop.setTitle("Go to Shop", for: .normal)
-        }else{
+        } else {
             registerShop.setTitle("Register a Shop", for: .normal)
         }
     }
