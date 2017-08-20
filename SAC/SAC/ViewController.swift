@@ -44,11 +44,13 @@ class ViewController: UIViewController {
     
     @IBAction func shopAction(_ sender: Any) {
         let hasRegiseterd = UserDefaults.standard.bool(forKey: "hasRegistered");
-        if (hasRegiseterd) {
-            goToShop()
-        } else {
-            goToRegister()
-        }
+//        if (hasRegiseterd) {
+//            goToShop()
+//        } else {
+//            goToRegister()
+//        }
+        goToShop()
+
     }
     
     func goToShop(){
