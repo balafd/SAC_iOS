@@ -36,11 +36,18 @@ class ShopViewController: UIViewController  {
 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        //This goes to qr
-        let addProduct : UIBarButtonItem = UIBarButtonItem(title: "Add Product", style: .plain, target: self, action: Selector(""))
+        let addProduct : UIBarButtonItem = UIBarButtonItem(title: "Add Product", style: .plain, target: self, action: #selector(ShopViewController.showAddProduct))
         self.navigationItem.rightBarButtonItem = addProduct
     }
 
+    @objc func showAddProduct(){
+
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ProductAdd") as! ProductAddViewController
+        self.navigationController?.pushViewController(nextViewController, animated:true)
+
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
