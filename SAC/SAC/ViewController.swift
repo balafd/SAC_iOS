@@ -26,6 +26,12 @@ class ViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         setupLocationManager(locationManager)
         configureProductSearchBar()
+        configureTagsTableView()
+    }
+    
+    func configureTagsTableView(){
+        tagsTableView.separatorStyle = UITableViewCellSeparatorStyle.none;
+        tagsTableView.keyboardDismissMode = .onDrag;
     }
     
     func configureProductSearchBar() {
@@ -122,6 +128,7 @@ extension ViewController : UITableViewDataSource {
         
         let tag = tagSuggestions?[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "TagSuggestionCell") as! UITableViewCell
+        cell.selectionStyle = .none;
         cell.textLabel?.text = tag?.name
         return cell
     }

@@ -10,7 +10,7 @@ import Foundation
 
 class MockService: WebService {
     
-    var hostURL: String = "http://localhost:3006/"
+    var hostURL: String = "http://192.168.1.3:3006/"
     
     func searchSuggestions(searchText: String, completion: @escaping ([Tag]?) -> Void) {
         
