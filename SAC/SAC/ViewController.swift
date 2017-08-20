@@ -28,12 +28,35 @@ class ViewController: UIViewController {
         setupLocationManager(locationManager)
         configureProductSearchBar()
         configureTagsTableView()
-        toggleButtonShow()
+        registerButtonEvents()
     }
     
-    func toggleButtonShow(){
-        let show = UserDefaults.standard.bool(forKey: "hasRegistered");
-        registerShop.isHidden = show
+    func registerButtonEvents(){
+        let hasRegiseterd = UserDefaults.standard.bool(forKey: "hasRegistered");
+        if(hasRegiseterd){
+            registerShop.setTitle("Go to Shop", for: .normal)
+        }else{
+            registerShop.setTitle("Register a Shop", for: .normal)
+        }
+    }
+    
+    @IBAction func shopAction(_ sender: Any) {
+        let hasRegiseterd = UserDefaults.standard.bool(forKey: "hasRegistered");
+        if(hasRegiseterd){
+            goToShop()
+        }else{
+            goToRegister()
+        }
+    }
+    
+    func goToShop(){
+        
+    }
+    
+    func goToRegister(){
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Register") as! RegisterViewController
+        self.navigationController?.pushViewController(nextViewController, animated:true)
     }
     
     func configureTagsTableView(){
