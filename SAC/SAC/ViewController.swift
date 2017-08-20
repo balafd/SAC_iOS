@@ -75,7 +75,11 @@ class ViewController: UIViewController {
             self.performSegue(withIdentifier: "ResultsPage", sender: nil)
         } else {
             let alert = UIAlertController.init(title: "Alert!", message: "Nothing found", preferredStyle: .alert)
-            alert.show(self, sender: nil);
+            let okAction = UIAlertAction(title: "Ok", style: .default) { Void in
+                
+            }
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
         }
     }
     

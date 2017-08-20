@@ -34,7 +34,7 @@ class SACWebService: WebService {
                     return
                 }
                 guard let value = response.result.value as? [String: Any], let rows = value["results"] as? [[String:Any]], let statusCode = value["status_code"] as? Int else {
-                    completion(nil)
+                    completion([Shop]())
                     return
                 }
                 if statusCode != 200 {

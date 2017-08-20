@@ -41,7 +41,10 @@
 		2DB3D1EF1F48228F00FF8D9C /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		2DB3D1F21F48325500FF8D9C /* ShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCell.swift; sourceTree = "<group>"; };
 		A5FBBF291CCEA9B61F6FA522 /* Pods_SAC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SAC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+<<<<<<< Updated upstream
 		C72AE4F91F4917660044B3CF /* MapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MapStyle.json; sourceTree = "<group>"; };
+=======
+>>>>>>> Stashed changes
 		D87A2277E194D010ACC52034 /* Pods-SAC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SAC/Pods-SAC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
