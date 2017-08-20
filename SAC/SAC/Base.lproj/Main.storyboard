@@ -269,17 +269,55 @@
         <!--ViewShop-->
         <scene sceneID="q3a-JN-RpC">
             <objects>
-                <viewController storyboardIdentifier="ViewShop" title="ViewShop" id="BB7-MN-eNz" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ViewShop" storyboardIdentifier="ViewShop" title="ViewShop" id="BB7-MN-eNz" customClass="ShopViewController" customModule="SAC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OZq-sO-30u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gxn-6G-Y6C">
+                                <rect key="frame" x="16" y="40" width="349" height="101.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Name : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1F4-sJ-Au4" userLabel="Name">
+                                        <rect key="frame" x="0.0" y="0.0" width="58.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Owner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqV-XE-qQ3" userLabel="Owner">
+                                        <rect key="frame" x="0.0" y="40.5" width="50.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Address :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHd-gN-fkc" userLabel="Address">
+                                        <rect key="frame" x="0.0" y="81" width="72" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wh3-Py-yw1" userLabel="Trends">
+                                <rect key="frame" x="16" y="161.5" width="349" height="505.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gxn-6G-Y6C" firstAttribute="top" secondItem="cJm-It-X4F" secondAttribute="top" constant="20" id="9Je-CK-V7n"/>
+                            <constraint firstItem="gxn-6G-Y6C" firstAttribute="leading" secondItem="cJm-It-X4F" secondAttribute="leading" constant="16" id="C32-Dl-c0U"/>
+                            <constraint firstItem="wh3-Py-yw1" firstAttribute="leading" secondItem="gxn-6G-Y6C" secondAttribute="leading" id="Dd9-JW-LrL"/>
+                            <constraint firstItem="wh3-Py-yw1" firstAttribute="trailing" secondItem="gxn-6G-Y6C" secondAttribute="trailing" id="KYj-Ka-Zas"/>
+                            <constraint firstItem="cJm-It-X4F" firstAttribute="trailing" secondItem="gxn-6G-Y6C" secondAttribute="trailing" constant="10" id="Prf-JD-Agc"/>
+                            <constraint firstItem="wh3-Py-yw1" firstAttribute="top" secondItem="gxn-6G-Y6C" secondAttribute="bottom" constant="20" id="k87-At-FtG"/>
+                            <constraint firstItem="cJm-It-X4F" firstAttribute="bottom" secondItem="wh3-Py-yw1" secondAttribute="bottom" id="zYO-Se-4OW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cJm-It-X4F"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sZg-6c-PTK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65" y="1657"/>
+            <point key="canvasLocation" x="126" y="950"/>
         </scene>
     </scenes>
     <resources>

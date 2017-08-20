@@ -40,16 +40,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func shopAction(_ sender: Any) {
-        let hasRegiseterd = UserDefaults.standard.bool(forKey: "hasRegistered");
-        if(hasRegiseterd){
-            goToShop()
-        }else{
-            goToRegister()
-        }
+//        let hasRegiseterd = UserDefaults.standard.bool(forKey: "hasRegistered");
+//        if(hasRegiseterd){
+//            goToShop()
+//        }else{
+//            goToRegister()
+//        }
+        goToShop()
     }
     
     func goToShop(){
-        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewShop") as! ShopViewController
+        self.navigationController?.pushViewController(nextViewController, animated:true)
     }
     
     func goToRegister(){

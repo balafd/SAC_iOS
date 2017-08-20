@@ -22,6 +22,7 @@
 		79791AC06DF69C0F6A541DC7 /* Pods_SAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5FBBF291CCEA9B61F6FA522 /* Pods_SAC.framework */; };
 		C72AE4FA1F4917660044B3CF /* MapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = C72AE4F91F4917660044B3CF /* MapStyle.json */; };
 		C72AE4FC1F491BF50044B3CF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72AE4FB1F491BF50044B3CF /* RegisterViewController.swift */; };
+		C7BDD4811F492AD8007EADA2 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BDD4801F492AD8007EADA2 /* ShopViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		A5FBBF291CCEA9B61F6FA522 /* Pods_SAC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SAC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72AE4F91F4917660044B3CF /* MapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MapStyle.json; sourceTree = "<group>"; };
 		C72AE4FB1F491BF50044B3CF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C7BDD4801F492AD8007EADA2 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		D87A2277E194D010ACC52034 /* Pods-SAC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SAC/Pods-SAC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 				2DB3D1DF1F480BC900FF8D9C /* Assets.xcassets */,
 				2DB3D1E11F480BC900FF8D9C /* LaunchScreen.storyboard */,
 				2DB3D1E41F480BC900FF8D9C /* Info.plist */,
+				C7BDD4801F492AD8007EADA2 /* ShopViewController.swift */,
 			);
 			path = SAC;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			files = (
 				2D8C38FD1F485BD700FCB969 /* WebService.swift in Sources */,
 				C72AE4FC1F491BF50044B3CF /* RegisterViewController.swift in Sources */,
+				C7BDD4811F492AD8007EADA2 /* ShopViewController.swift in Sources */,
 				2D8C38FF1F48779200FCB969 /* MockWebService.swift in Sources */,
 				2DB3D1DB1F480BC900FF8D9C /* ViewController.swift in Sources */,
 				2DB3D1D91F480BC900FF8D9C /* AppDelegate.swift in Sources */,
