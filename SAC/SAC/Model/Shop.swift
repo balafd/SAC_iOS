@@ -14,6 +14,7 @@ struct Shop {
     let latitude: Double
     let longitude: Double
     let address: String
+    let ownerName: String
 }
 
 extension Shop {
@@ -24,8 +25,8 @@ extension Shop {
             phone: jsonDict["phone"] as! String,
             latitude: jsonDict["latitude"] as! Double,
             longitude: jsonDict["longitude"] as! Double,
-            address: jsonDict["address"] as! String
-            
+            address: jsonDict["address"] as! String,
+            ownerName: jsonDict["owner"] as! String
         )
     }
 }

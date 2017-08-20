@@ -9,6 +9,10 @@
 import Foundation
 
 class MockService: WebService {
+    func registerShop(shop: Shop, description: String, tags: String, completion: @escaping (Shop?) -> Void) {
+        
+    }
+    
     
     var hostURL: String = "http://192.168.1.2:3006/"
     
@@ -27,13 +31,15 @@ class MockService: WebService {
                            phone: "+91 9944991225",
                            latitude: 12.96099,
                            longitude: 80.24099,
-                           address: "Perungudi - 635")
+                           address: "Perungudi - 635",
+                           ownerName: "")
         let shop2 =  Shop (id: 2,
                            name: "Shop2",
                            phone: "9944991225",
                            latitude: 12.96192,
                            longitude: 80.24192,
-                           address: "Perungudi - 600096")
+                           address: "Perungudi - 600096",
+                           ownerName: "")
         
         let when = DispatchTime.now() + 3 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {

@@ -33,23 +33,56 @@ class RegisterViewController: FormViewController {
         row = FormRowDescriptor(tag: "phone", type: .phone, title: "Phone Number")
         section1.rows.append(row)
 
-        row = FormRowDescriptor(tag: "address", type: .phone, title: "Address")
+        row = FormRowDescriptor(tag: "address", type: .multilineText, title: "Address")
         section1.rows.append(row)
 
-        row = FormRowDescriptor(tag: "owner", type: .phone, title: "Owner")
+        row = FormRowDescriptor(tag: "owner", type: .text, title: "Owner")
         section1.rows.append(row)
 
-        row = FormRowDescriptor(tag: "tags", type: .phone, title: "Tags")
+        row = FormRowDescriptor(tag: "tags", type: .multilineText, title: "Tags")
         section1.rows.append(row)
         
         row = FormRowDescriptor(tag: "button", type: .button, title: "Submit")
         row.configuration.button.didSelectClosure = { _ in
             
-//            self.form.formValues().forEach({ (<#(key: String, value: AnyObject)#>) in
-//                <#code#>
-//            })
-            // set UserDefaults.standard.bool(forKey: "hasRegistered"); after completion
+            var name: String?
+            var address: String?
+            var owner: String?
+            var phone: String?
+            var tags: String?
             
+            self.form.formValues().forEach({ (result) in
+                let key = result.key
+                let value = result.value
+                
+                if key == "name" {
+                    name = value as? String
+                } else if key == "address" {
+                    address = value as? String
+                } else if key == "owner" {
+                    owner = value as? String
+                } else if key == "phone" {
+                    phone = value as? String
+                } else if key == "tags" {
+                    tags = value as? String
+                }
+            })
+            
+            self.showProgressHUD()
+            if let appDelegate = UIApplication.shared .delegate as? AppDelegate {
+                if let location = appDelegate.myCurrentLocation {
+                    let shop = Shop.init(id: 1, name: name!, phone: phone!, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, address: address!, ownerName: owner!)
+                    let webService = SACWebService.init()
+                    webService.registerShop(shop: shop, description: "Shop Description", tags: tags!, completion: { (myShop) in
+                        if myShop != nil {
+//                            UserDefaults.standard.bool(forKey: "hasRegistered")
+                            UserDefaults.standard.set(true, forKey: "hasRegistered")
+                            self.hideProgressHUD()
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                    })
+                }
+            }
         }
         section1.rows.append(row)
         

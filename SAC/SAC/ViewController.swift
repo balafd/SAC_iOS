@@ -12,7 +12,6 @@ import MBProgressHUD
 
 class ViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
-    var myCurrentLocation : CLLocation?
     let locationManager = CLLocationManager()
     let webService = SACWebService.init()
     var results: [Shop]? = [Shop]()
@@ -28,7 +27,7 @@ class ViewController: UIViewController {
         setupLocationManager(locationManager)
         configureProductSearchBar()
         configureTagsTableView()
-        registerButtonEvents()
+
     }
     
     func registerButtonEvents(){
@@ -71,6 +70,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        registerButtonEvents()
     }
     
     @IBAction func tappedSearchButton(_ sender: Any) {
@@ -78,18 +78,22 @@ class ViewController: UIViewController {
     }
     
     func searchForShops(tagID: Int) {
-        if let location = myCurrentLocation {
-            webService.fetchShops(tagID: tagID, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, completion: { (shops) in
-                
-                if let resultShops = shops {
-                    print(resultShops)
-                    self.handleShopResult(result: resultShops)
-                } else {
-                    print("Error in Fetching")
-                }
-                self.hideProgressHUD()
-            })
+        if let appDelegate = UIApplication.shared .delegate as? AppDelegate {
+            if let location = appDelegate.myCurrentLocation {
+                webService.fetchShops(tagID: tagID, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, completion: { (shops) in
+                    
+                    if let resultShops = shops {
+                        print(resultShops)
+                        self.handleShopResult(result: resultShops)
+                    } else {
+                        print("Error in Fetching")
+                    }
+                    self.hideProgressHUD()
+                })
+            }
         }
+        
+        
     }
     
     func handleShopResult(result: [Shop]) {
@@ -148,7 +152,9 @@ extension ViewController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         print("locations = \(locValue.latitude) \(locValue.longitude)")
-        myCurrentLocation = manager.location!
+        if let appDelegate = UIApplication.shared .delegate as? AppDelegate {
+            appDelegate.myCurrentLocation = manager.location!
+        }
     }
 }
 
