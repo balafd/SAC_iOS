@@ -87,6 +87,10 @@ class RegisterViewController: FormViewController {
             }
         }
         section1.rows.append(row)
+<<<<<<< Updated upstream
+=======
+        form.validateForm()
+>>>>>>> Stashed changes
         form.sections = [section1]
         self.form = form
         self.form.validateForm()
