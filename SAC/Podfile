@@ -9,4 +9,5 @@ target 'SAC' do
     pod 'GoogleMaps', '= 2.3.0'
     pod 'Alamofire'
     pod 'MBProgressHUD'
+    pod 'SwiftForms'
 end
