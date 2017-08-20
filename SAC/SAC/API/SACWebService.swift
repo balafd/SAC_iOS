@@ -10,9 +10,8 @@ import Foundation
 import Alamofire
 
 class SACWebService: WebService {
-    func registerShop(shop: Shop, description: String, tags: String, completion: @escaping (Shop?) -> Void) {
+    func registerShop(shop: Shop, description: String, tags: String, completion: @escaping (Int?) -> Void) {
         let path = hostURL + "shop"
-        //curl localhost:3006/shop -d "name=secondshop&description=doe&phone=123&owner=me&address=sampleadd&category_id=1&latitude=1.22&longitude=1.23&tags=shampoo"
 
         let params : [String: Any] = ["name": shop.name,
                                       "latitude": shop.latitude,
@@ -38,21 +37,20 @@ class SACWebService: WebService {
                     completion(nil)
                     return
                 }
-                guard let value = response.result.value as? [String: Any], let statusCode = value["status_code"] as? Int else {
+                
+                guard let value = response.result.value as? [String: Any], let shopID = value["results"] as? Int, let statusCode = value["status_code"] as? Int else {
                     completion(nil)
                     return
                 }
                 if statusCode != 200 {
                     completion(nil)
-                    return
                 } else {
-                    completion(shop)
+                    completion(shopID)
                 }
         }
     }
     
-    
-    var hostURL: String = "http://192.168.1.2:3006/"
+    var hostURL: String = "http://192.168.1.3:3006/"
     
     func fetchShops(tagID: Int, latitude: Double, longitude: Double, completion: @escaping ([Shop]?) -> Void) {
         let path = hostURL + "search"

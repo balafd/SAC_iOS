@@ -73,10 +73,10 @@ class RegisterViewController: FormViewController {
                 if let location = appDelegate.myCurrentLocation {
                     let shop = Shop.init(id: 1, name: name!, phone: phone!, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, address: address!, ownerName: owner!)
                     let webService = SACWebService.init()
-                    webService.registerShop(shop: shop, description: "Shop Description", tags: tags!, completion: { (myShop) in
-                        if myShop != nil {
-//                            UserDefaults.standard.bool(forKey: "hasRegistered")
+                    webService.registerShop(shop: shop, description: "Shop Description", tags: tags!, completion: { (myShopID) in
+                        if myShopID != nil {
                             UserDefaults.standard.set(true, forKey: "hasRegistered")
+                            UserDefaults.standard.set(myShopID!, forKey: "shopID")
                             self.hideProgressHUD()
                             self.navigationController?.popViewController(animated: true)
                         }
@@ -85,12 +85,9 @@ class RegisterViewController: FormViewController {
             }
         }
         section1.rows.append(row)
-        
         form.sections = [section1]
-        
         self.form = form
     }
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

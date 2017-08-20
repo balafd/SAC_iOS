@@ -9,7 +9,7 @@
 import Foundation
 
 class MockService: WebService {
-    func registerShop(shop: Shop, description: String, tags: String, completion: @escaping (Shop?) -> Void) {
+    func registerShop(shop: Shop, description: String, tags: String, completion: @escaping (Int?) -> Void) {
         
     }
     

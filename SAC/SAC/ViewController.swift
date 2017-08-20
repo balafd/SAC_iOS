@@ -27,12 +27,15 @@ class ViewController: UIViewController {
         setupLocationManager(locationManager)
         configureProductSearchBar()
         configureTagsTableView()
-
+        
+        let shopID = UserDefaults.standard.integer(forKey: "shopID");
+        
+        UserDefaults.standard.set(false, forKey: "hasRegistered")
     }
     
     func registerButtonEvents(){
         let hasRegiseterd = UserDefaults.standard.bool(forKey: "hasRegistered");
-        if(hasRegiseterd){
+        if (hasRegiseterd){
             registerShop.setTitle("Go to Shop", for: .normal)
         }else{
             registerShop.setTitle("Register a Shop", for: .normal)
@@ -40,13 +43,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func shopAction(_ sender: Any) {
-//        let hasRegiseterd = UserDefaults.standard.bool(forKey: "hasRegistered");
-//        if(hasRegiseterd){
-//            goToShop()
-//        }else{
-//            goToRegister()
-//        }
-        goToShop()
+        let hasRegiseterd = UserDefaults.standard.bool(forKey: "hasRegistered");
+        if (hasRegiseterd) {
+            goToShop()
+        } else {
+            goToRegister()
+        }
     }
     
     func goToShop(){
