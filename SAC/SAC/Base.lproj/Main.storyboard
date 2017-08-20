@@ -89,6 +89,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Pgy-h9-JZR"/>
                     <connections>
+                        <outlet property="registerShop" destination="VMe-Mf-6d5" id="0XR-eZ-b5b"/>
                         <outlet property="searchBar" destination="7YM-S7-DXg" id="2Z7-Jd-piH"/>
                         <outlet property="tagsTableView" destination="dhr-se-4mL" id="yr8-rI-fUZ"/>
                         <segue destination="jg3-tx-OHY" kind="show" identifier="ResultsPage" id="8SS-P7-yZv"/>

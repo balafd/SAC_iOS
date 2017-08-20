@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     var results: [Shop]? = [Shop]()
     var tagSuggestions: [Tag]? = [Tag]()
     
+    @IBOutlet weak var registerShop: UIButton!
     @IBOutlet weak var tagsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,12 @@ class ViewController: UIViewController {
         setupLocationManager(locationManager)
         configureProductSearchBar()
         configureTagsTableView()
+        toggleButtonShow()
+    }
+    
+    func toggleButtonShow(){
+        let show = UserDefaults.standard.bool(forKey: "hasRegistered");
+        registerShop.isHidden = show
     }
     
     func configureTagsTableView(){
