@@ -20,3 +20,8 @@ extension Tag {
         )
     }
 }
+
+struct TrendingTag {
+    let tag: Tag
+    let count: Int
+}

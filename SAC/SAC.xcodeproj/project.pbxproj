@@ -101,11 +101,11 @@
 				2DB3D1DA1F480BC900FF8D9C /* ViewController.swift */,
 				2DB3D1EA1F48158700FF8D9C /* ResultViewController.swift */,
 				C72AE4FB1F491BF50044B3CF /* RegisterViewController.swift */,
+				C7BDD4801F492AD8007EADA2 /* ShopViewController.swift */,
 				2DB3D1DC1F480BC900FF8D9C /* Main.storyboard */,
 				2DB3D1DF1F480BC900FF8D9C /* Assets.xcassets */,
 				2DB3D1E11F480BC900FF8D9C /* LaunchScreen.storyboard */,
 				2DB3D1E41F480BC900FF8D9C /* Info.plist */,
-				C7BDD4801F492AD8007EADA2 /* ShopViewController.swift */,
 			);
 			path = SAC;
 			sourceTree = "<group>";

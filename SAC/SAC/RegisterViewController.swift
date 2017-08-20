@@ -69,7 +69,6 @@ class RegisterViewController: FormViewController {
                 }
             })
 
-
             self.showProgressHUD()
             if let appDelegate = UIApplication.shared .delegate as? AppDelegate {
                 if let location = appDelegate.myCurrentLocation {

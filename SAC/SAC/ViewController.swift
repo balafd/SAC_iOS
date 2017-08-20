@@ -27,10 +27,10 @@ class ViewController: UIViewController {
         setupLocationManager(locationManager)
         configureProductSearchBar()
         configureTagsTableView()
-        
-        let shopID = UserDefaults.standard.integer(forKey: "shopID");
-        
-        UserDefaults.standard.set(false, forKey: "hasRegistered")
+        var shopID = UserDefaults.standard.integer(forKey: "shopID")
+        shopID = 674
+        UserDefaults.standard.set(shopID, forKey: "shopID")
+        UserDefaults.standard.set(true, forKey: "hasRegistered")
     }
     
     func registerButtonEvents(){
@@ -78,10 +78,6 @@ class ViewController: UIViewController {
         registerButtonEvents()
     }
     
-    @IBAction func tappedSearchButton(_ sender: Any) {
-
-    }
-    
     func searchForShops(tagID: Int) {
         if let appDelegate = UIApplication.shared .delegate as? AppDelegate {
             if let location = appDelegate.myCurrentLocation {
@@ -97,8 +93,6 @@ class ViewController: UIViewController {
                 })
             }
         }
-        
-        
     }
     
     func handleShopResult(result: [Shop]) {

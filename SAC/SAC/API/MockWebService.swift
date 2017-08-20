@@ -11,7 +11,23 @@ import Foundation
 class MockService: WebService {
     
     func fetchShopDetail(shopID: Int, completion: @escaping (Shop?, [Tag]?, [String: Any]?) -> Void) {
+    
+        let shop = Shop.init(id: 674,
+                             name: "Annan Kadai",
+                             phone: "8849499299",
+                             latitude: 20.412,
+                             longitude: 80.452,
+                             address: "44sks kksk k",
+                             ownerName: "bala")
         
+        let taf = Tag.init(id: 1, name: "Addd")
+        let taf1 = Tag.init(id: 2, name: "Dd")
+        let tags = [taf, taf1]
+        
+        
+        
+        
+        completion(shop, tags, nil)
     }
     
     func registerShop(shop: Shop, description: String, tags: String, completion: @escaping (Int?) -> Void) {

@@ -10,9 +10,26 @@ import UIKit
 
 class ShopViewController: UIViewController {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var ownerLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let webService = MockService.init()
+        let shopID = UserDefaults.standard.integer(forKey: "shopID")
+
+        webService.fetchShopDetail(shopID: shopID) { (shop, tags, otherDetails) in
+            print(shop)
+         
+            if let myShop = shop {
+                self.nameLabel.text = "Name : " + shop!.name
+                self.ownerLabel.text = "Owner : " + shop!.ownerName
+            }
+            
+            
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

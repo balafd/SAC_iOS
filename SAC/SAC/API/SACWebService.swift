@@ -26,11 +26,10 @@ class SACWebService: WebService {
             })
             .responseJSON { (response) -> Void in
                 guard response.result.isSuccess else {
-                    print("Error while fetching remote rooms: \(String(describing: response.result.error))")
+                    print("Error while fetching shop details: \(String(describing: response.result.error))")
                     completion(nil, nil, nil)
                     return
                 }
-                
                 guard let value = response.result.value as? [String: Any], let result = value["results"] as? [String: Any], let statusCode = value["status_code"] as? Int else {
                     completion(nil, nil, nil)
                     return
@@ -38,8 +37,8 @@ class SACWebService: WebService {
                 if statusCode != 200 {
                     completion(nil, nil, nil)
                 } else {
+                    print("result : ")
                     print(result)
-
                 }
         }
     }
@@ -67,7 +66,7 @@ class SACWebService: WebService {
             })
             .responseJSON { (response) -> Void in
                 guard response.result.isSuccess else {
-                    print("Error while fetching remote rooms: \(String(describing: response.result.error))")
+                    print("Error while registering: \(String(describing: response.result.error))")
                     completion(nil)
                     return
                 }
@@ -84,7 +83,7 @@ class SACWebService: WebService {
         }
     }
     
-    var hostURL: String = "http://192.168.1.3:3006/"
+    var hostURL: String = "http://localhost:3006/"
     
     func fetchShops(tagID: Int, latitude: Double, longitude: Double, completion: @escaping ([Shop]?) -> Void) {
         let path = hostURL + "search"
